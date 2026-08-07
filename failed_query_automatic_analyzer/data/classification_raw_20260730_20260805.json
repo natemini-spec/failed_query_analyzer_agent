@@ -1,0 +1,1146 @@
+[
+  {
+    "search_keyword": "국악딴따라",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "SNS(틱톡 등)에서 국악풍 사운드/구음(딴따라 어감의 소리)이 화제가 되며 많은 사람들이 정식 음원으로 나오길 바라는 인터넷 유행 사운드로 보이나, 실제 정식 발매곡이 존재하지 않아 멜론 검색에서는 매칭되는 곡이 없어 클릭률이 0%에 가까운 것으로 추정됨.",
+    "category": "밈/트렌드",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "잔울",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "Spotify, Apple Music, YouTube Music 등에 아티스트 페이지가 존재하는 실제 가수/아티스트명(로마자 표기 Janull)으로, 인지도가 낮은 신인 아티스트로 보임.",
+    "category": "아티스트",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "효리수",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "소녀시대 멤버 효연, 유리, 수영으로 구성된 유닛 그룹명으로, 효연의 유튜브 콘텐츠 '효연의 레벨업'에서 시작되어 화제가 되었고 2026년 정식 데뷔한 것으로 보도됨.",
+    "category": "아티스트",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "겜작",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "'겜'(게임)과 '작'(노가다/반복작업)의 합성어로, 게임 내 스탯이나 능력치를 올리기 위해 반복적으로 파밍하는 행위를 뜻하는 게임 커뮤니티 용어이며 음악과는 직접적 관련이 없음.",
+    "category": "지식",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "국악 딴따라",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "'국악딴따라'와 동일한 문구로, 공백 유무만 다른 검색어이며 SNS에서 화제가 된 국악풍 사운드/구음 관련 유행 표현으로 정식 음원이 없어 멜론 검색 클릭률이 낮은 것으로 추정됨.",
+    "category": "밈/트렌드",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "뮤직웨이브",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "뮤직웨이브(MUSIC WAVE)는 카카오엔터테인먼트 멜론이 운영하는 실시간 음악 감상·채팅 서비스로, 다양한 테마 채널에서 여러 이용자가 함께 음악을 들으며 소통하고 K팝 아티스트-팬덤 소통 채널로도 쓰인다.",
+    "category": "앱기능/서비스",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "르센느",
+    "is_typo": true,
+    "corrected_keyword": "리센느",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "국어별동대",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "국어별동대는 유튜버 백앤아와 캐릭터 그룹 고고프렌즈가 만든 국어 학습 콘텐츠에서 나온 노래 제목으로, 동명의 학습만화 단행본도 출간되었다.",
+    "category": "음원",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "국악딴",
+    "is_typo": true,
+    "corrected_keyword": "국악딴따라",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "무엇이든 해낼 당신에게",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "무엇이든 해낼 당신에게는 작가 남상훈이 쓴 에세이·자기계발 도서(부크럼, 2024)로, SNS 필사챌린지 등에서 자주 인용되는 문구이다.",
+    "category": "기타",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "무엇이든 해낼",
+    "is_typo": true,
+    "corrected_keyword": "무엇이든 해낼 당신에게",
+    "description": null,
+    "category": null,
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "국악딴다라",
+    "is_typo": true,
+    "corrected_keyword": "국악딴따라",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "사람이 지쳤잖아",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "지치고 힘든 감정을 반복적으로 표현하는 문구로 틱톡 등 SNS에서 유행한 밈 문구이며, 이를 바탕으로 아티스트 223.32가 2026년 1월 동명의 싱글 음원을 발매했다.",
+    "category": "음원",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "제이플로라",
+    "is_typo": true,
+    "corrected_keyword": "제이플라",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "분주한결",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "'여름이네 여름이야', '차라리 나를 미워해' 등의 싱글을 발매한 인디/솔로 성격의 음악 아티스트명이다.",
+    "category": "아티스트",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "이런여유너무좋고",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "\"이런 여유 너무 좋고\"라는 뜻의 문구로, 특정 곡이나 밈의 정확한 출처는 검색으로 확인되지 않았으며 SNS/쇼츠 등에서 여유로운 일상을 표현할 때 쓰이는 캡션형 문구로 추정된다.",
+    "category": "밈/트렌드",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "해지",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "멜론 유료 구독 서비스의 해지(구독 취소)와 관련된 앱 내 기능/메뉴를 찾기 위한 검색어이다.",
+    "category": "앱기능/서비스",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "주간인기상",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "멜론에서 매주 진행하는 인기 투표 시상 제도로, 발매 28일 이내 신곡을 대상으로 스트리밍/다운로드 성적과 투표를 합산해 매주 월요일 발표하는 멜론 뮤직 어워드 관련 기능이다.",
+    "category": "앱기능/서비스",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "ㅇ",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "의미 파악이 어려운 단문/입력 오류로 추정",
+    "category": "기타",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "afterandafter",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "afterandafter는 'The Carousel', 'Filled With Love', 'I Froze' 등의 곡을 스포티파이·애플뮤직 등에 발표한 인디 음악 아티스트이다.",
+    "category": "아티스트",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "맛뮤직",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "정확한 의미를 확인할 수 있는 자료를 찾지 못했으며, '맛'과 '뮤직'을 합친 조어로 취향에 맞는 음악을 뜻하는 표현으로 추정된다.",
+    "category": "기타",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "rover is",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "'ROVER is:'는 '계속 가'라는 곡을 발표한 것으로 확인되는 아티스트/그룹명으로 추정된다.",
+    "category": "아티스트",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "34xp",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "34XP는 'THE BEACH', 'threshold' 등의 앨범을 발표하고 스포티파이·애플뮤직·유튜브뮤직 등에서 활동 중인 아티스트이다.",
+    "category": "아티스트",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "할 걸",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "'할걸'과 '할 걸'의 띄어쓰기(맞춤법)에 관한 국어 표현 질문으로 검색되는 경우가 많으며, 특정 곡과의 뚜렷한 연관성은 확인되지 않았다.",
+    "category": "지식",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "무엇이든",
+    "is_typo": true,
+    "corrected_keyword": "무엇이든 해낼 당신에게",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "고고프렌즈",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "고고프렌즈(GOGO FRIENDS)는 백현, 아름, 모찌엘, 평학, 모양몬 등이 출연하는 키즈 대상 유튜브 콘텐츠 그룹으로, '국어별동대' 등의 노래도 발표했다.",
+    "category": "아티스트",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "love basecamp",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "'love'(feat. SOLE)는 아티스트 basecamp가 2024년에 발표한 곡이다.",
+    "category": "음원",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "이런여유",
+    "is_typo": true,
+    "corrected_keyword": "이런여유너무좋고",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "진울",
+    "is_typo": true,
+    "corrected_keyword": "잔울",
+    "description": null,
+    "category": null,
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "정승환 입춘",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "가수 정승환이 한로로의 원곡 '입춘'을 커버해 부른 무대로, 유튜브·SNS 등에서 화제가 된 곡입니다.",
+    "category": "음원",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "로린디엘",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "로린디엘(Lorindiel)은 스포티파이·유튜브·틱톡·인스타그램 등에서 활동하는 인디 여성 보컬 아티스트로, '그밤 우리는' 등의 곡을 발표했습니다.",
+    "category": "아티스트",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "ㄱ",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "의미 파악이 어려운 단문/입력 오류로 추정",
+    "category": "기타",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "내정보",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "멜론 앱의 '내 정보' 메뉴로, 마이페이지에서 이용권 및 개인정보를 확인·관리하는 서비스 기능입니다.",
+    "category": "앱기능/서비스",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "mellozen",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "mellozen은 '이 순간이 소중해' 등의 곡을 발표한 AI 음악 아티스트/크리에이터로, 스포티파이·샤잠·인스타그램 등에서 활동이 확인됩니다.",
+    "category": "아티스트",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "한그루비",
+    "is_typo": true,
+    "corrected_keyword": "한그루브",
+    "description": null,
+    "category": null,
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "어짜피 한번",
+    "is_typo": true,
+    "corrected_keyword": "어차피 한번",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "어짜피한번",
+    "is_typo": true,
+    "corrected_keyword": "어차피 한번",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "lovixx",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "LOVIXX는 클라우드랩/힙합·전자음악을 기반으로 활동하는 아티스트로, 'Dior', 'Millionaire' 등의 곡을 발표했습니다.",
+    "category": "아티스트",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "투표",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "멜론 내 음악방송이나 시상식 등에서 아티스트에게 투표하는 투표 기능을 가리키는 검색어로 추정됩니다.",
+    "category": "앱기능/서비스",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "nno signal",
+    "is_typo": true,
+    "corrected_keyword": "no signal",
+    "description": null,
+    "category": null,
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "열",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "한 글자로 의미가 매우 다양(숫자 10, 발열, 줄 등)하여 어떤 대상을 의도했는지 특정하기 어려운 검색어입니다.",
+    "category": "기타",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "mlip",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "MLIP은 '시발 존나 춥다', '느금마', '앙기모찌송' 등 인터넷 드립/밈을 소재로 한 곡들을 멜론·스포티파이·애플뮤직 등에 다수 발표한 온라인 음원 아티스트명이다.",
+    "category": "아티스트",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "씨앤블루",
+    "is_typo": true,
+    "corrected_keyword": "씨엔블루 (CNBLUE)",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "제발 잊혀져",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "이소라의 발라드 '제발' 가사 중 '다른 사랑으로 잊혀져 지워지는 게 난 싫어'라는 구절에서 따온 표현으로, 곡 제목과 가사 일부를 조합해 검색한 것으로 보인다. 해당 곡은 김범수의 리메이크로도 유명하다.",
+    "category": "음원",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "국민딴따라",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "'국민딴따라'는 박진영이 출연하는 KBS 2TV 예능 '더 딴따라'에서 전국의 실력파 '딴따라(만능 엔터테이너)'를 찾는다는 콘셉트에서 나온 표현으로, 특정 노래나 가수보다는 방송 프로그램 관련 용어에 가깝다.",
+    "category": "기타",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "조선힙합 살아보니 그렇더라",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "전통 소재를 힙합으로 재해석하는 프로젝트 '조선힙합 Official'의 곡 '살다보니'(힘든 날도 결국 지나가더이다)를 가리키는 것으로 보이며, 정확한 곡 제목과 달라 검색이 실패한 것으로 추정된다.",
+    "category": "음원",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "나도같은일년",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "웹 검색으로도 특정 곡, 아티스트, 밈 등과 명확히 연결되는 근거를 찾지 못했다. 노래 가사나 개인적 감상 문구의 일부로 추정되나 확인이 어렵다.",
+    "category": "기타",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "playcoa",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "웹 검색 결과 'Playco'라는 해외 인스턴트 게임 기업 등 유사 명칭만 확인되며, 'playcoa' 자체를 특정하는 근거는 찾지 못했다. 의미가 불분명한 문자열로 추정된다.",
+    "category": "기타",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "김버거",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "'김버거'는 유튜브·스포티파이 등에 '득근기도문', '햇살을 누리지 못할 이유는 없으니까' 등 AI 보컬 기반의 위로/드립 콘셉트 곡을 발표하는 음원 아티스트/채널명이다.",
+    "category": "아티스트",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "인생은 서툰 여행이래",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "틱톡·인스타그램 등에서 활동하는 크리에이터 '헬로핑(HELLOPING)'이 발표한 실제 싱글 곡 제목이다.",
+    "category": "음원",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "시발존나덥다",
+    "is_typo": true,
+    "corrected_keyword": "시발 존나 덥다 (MLIP)",
+    "description": null,
+    "category": null,
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "헬로핑",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "'헬로핑'은 틱톡·유튜브 등에서 인사말('저는 헬로핑이에요, 반가워요 헬로~')로 알려진 콘텐츠 크리에이터이자, '인생은 서툰 여행이래' 등의 곡을 발표한 음원 아티스트명이다.",
+    "category": "아티스트",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "우하이",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "'우하이'는 정치 풍자 댄스곡('부정선거 Catch Catch' 등)을 스포티파이·애플뮤직 등에 발표한 국내 음원 아티스트명이다(중국 내몽골의 도시 '우하이'와는 별개).",
+    "category": "아티스트",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "무엇이든해낼당신에게",
+    "is_typo": true,
+    "corrected_keyword": "무엇이든 해낼 당신에게",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "인생은 서툰",
+    "is_typo": true,
+    "corrected_keyword": "인생은 서툰 여행이래",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "붓꽃잎편지",
+    "is_typo": true,
+    "corrected_keyword": "붓꽃잎 편지",
+    "description": null,
+    "category": null,
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "soonflow",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "soonflow는 스포티파이 등 해외 스트리밍 플랫폼에 'The Best Is Yet to Come' 등의 곡을 발표한 인디 아티스트명으로 확인된다.",
+    "category": "아티스트",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "germinie",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "germinie는 Spotify·Apple Music·Shazam 등에 음원을 공개한 아티스트명으로 확인되며, 동명의 19세기 프랑스 소설과는 무관해 보인다.",
+    "category": "아티스트",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "국어 별동대",
+    "is_typo": true,
+    "corrected_keyword": "국어별동대",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "방금 그 노래",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "'방금 그 노래'는 TV·라디오에서 방금 나온 곡을 찾아주던 멜론의 '방금그곡' 기능을 가리키는 표현으로, 해당 서비스는 2025년 3월 종료되었다.",
+    "category": "앱기능/서비스",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "kelly is green",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "Kelly is Green은 'SO BAD', '365', '!?' 등을 발표한 해외 팝 아티스트이다.",
+    "category": "아티스트",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "서핑보이",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "서핑보이는 검색상 최근 작사·발매 관련 언급이 확인되는 노래 제목으로 보이나, 아티스트 등 구체적인 정보는 명확히 확인되지 않는다.",
+    "category": "음원",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "가스인간",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "가스인간은 1960년 도호의 특촬영화를 원작으로 연상호 감독이 각본을 쓴 넷플릭스 오리지널 시리즈(2026)로, 음악과는 무관한 콘텐츠다.",
+    "category": "지식",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "먼작귀",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "먼작귀는 일본 작가 나가노의 캐릭터 '치이카와'를 한국에서 부르는 애칭으로, 한일 양국에서 큰 인기를 끌고 있는 캐릭터 IP다.",
+    "category": "밈/트렌드",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "차쿤 에네스",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "차쿤 & 에네스는 청주 고교생 사망 사건을 소재로 만든 노래 '눈물'로 화제가 되었던 인터넷 가수(듀오)이다.",
+    "category": "아티스트",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "빅밸",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "빅밸은 아이돌 그룹 빅뱅(BIGBANG)을 가리키는 팬덤 내 줄임말/별칭으로 추정되며 관련 콘텐츠(대성이 탑에게 쓴 편지 등)에서 확인되나, 표준적으로 정착된 용어는 아니다.",
+    "category": "아티스트",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "퍼피구조대",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "퍼피구조대는 캐나다 애니메이션 'PAW Patrol'의 한국 정식 명칭으로, 음악과는 무관한 어린이 애니메이션이다.",
+    "category": "지식",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "래몬탱",
+    "is_typo": true,
+    "corrected_keyword": "레몬탱",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "아이릿",
+    "is_typo": true,
+    "corrected_keyword": "아일릿",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "ㅈ",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "의미 파악이 어려운 단문/입력 오류로 추정",
+    "category": "기타",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "myofeel",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "Spotify, Shazam 등에 등록된 음악 아티스트 'myofeel'로, 2026년 6월 발매한 'Good Day Energy' 등의 곡이 있음",
+    "category": "아티스트",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "사진 겜작",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "사진을 활용한 게임/콘텐츠 제작(겜작)을 가리키는 신조어 또는 트렌드 표현으로 추정되나, 정확한 의미와 출처는 검색으로 명확히 확인되지 않음",
+    "category": "기타",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "수고했어 여름",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "일본 아티스트 HALCALI의 노래 'おつかれSUMMER'의 한국어 제목 '수고했어, 여름'으로, 여름이 끝나갈 때의 아쉬움과 고마움을 담은 곡",
+    "category": "음원",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "더위가 사람",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "'더위가 사람 잡네'라는 표현의 일부로, 폭염으로 인한 인명 피해를 다루는 최근 뉴스 기사 제목 등에 자주 쓰이는 관용적 표현",
+    "category": "지식",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "입춘 정승환",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "가수 정승환이 부른 한로로의 노래 '입춘' 커버 버전을 가리키는 검색어로, '정승환 입춘'과 동일한 대상",
+    "category": "음원",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "a20",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "삼성 갤럭시 A20 스마트폰이나 오디오 기기 Aurender A20 등을 가리키는 것으로 추정되는 검색어로, 음악 콘텐츠와는 직접적인 관련이 없어 보임",
+    "category": "지식",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "엘리스신드롬",
+    "is_typo": true,
+    "corrected_keyword": "앨리스신드롬",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "僕には君がいないと",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "일본 아티스트 野良唄(노라우타)의 곡 '僕には君がいないと'로, 소중한 사람과 함께하는 일상의 행복을 그린 러브송",
+    "category": "음원",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "쿠폰",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "멜론 앱 내 음악 감상권/할인 쿠폰 등록과 관련된 서비스 기능을 가리키는 검색어로 추정",
+    "category": "앱기능/서비스",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "에헤헤",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "어색하거나 능청스러운 웃음을 나타내는 의성어로, 인터넷에서 유행어처럼 쓰이는 표현",
+    "category": "밈/트렌드",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "니썬뮤직",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "니썬뮤직은 스포티파이·샤잠 등 스트리밍 플랫폼에 곡을 발매한 인디 음악 아티스트/채널로, '날씨가 좋고 바람도 좋아' 등의 곡을 보유하고 있다.",
+    "category": "아티스트",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "angle",
+    "is_typo": true,
+    "corrected_keyword": "angel",
+    "description": null,
+    "category": null,
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "고래보석",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "고래보석은 애니메이션 영화 '사랑의 하츄핑: 고래보석의 전설'과 관련해 언급되는 용어로, 해당 영화는 2026년 여름 개봉을 앞둔 작품이다.",
+    "category": "지식",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "이용권",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "이용권은 멜론과 같은 음악 스트리밍 서비스에서 정기 구독/결제 상품을 가리키는 서비스 용어이다.",
+    "category": "앱기능/서비스",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "보넷도",
+    "is_typo": true,
+    "corrected_keyword": "보이넥스트도어(BOYNEXTDOOR)",
+    "description": null,
+    "category": null,
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "네가 볼때",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "특정 곡의 가사 일부로 추정되나, 검색을 통해 정확한 원곡이나 아티스트를 특정하기 어렵다.",
+    "category": "기타",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "좋게말하면 버틴거고",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "'좋게 말하면 버틴거고 까놓고 말하면 버린거고'는 스레드·인스타그램 등 SNS에서 회자되는 언어유희형 유행 문구이다.",
+    "category": "밈/트렌드",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "헬스키친",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "헬스키친은 팝스타 앨리샤 키스의 자전적 이야기를 담은 브로드웨이 뮤지컬로, 2026년 GS아트센터에서 한국 초연 중이다.",
+    "category": "지식",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "0+0=1",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "한로로의 곡 '0+0'과 그 리믹스 버전이 SNS에서 큰 화제를 모으며 밈으로 확산되었으며, '0+0=1'은 이와 관련된 검색어로 추정된다.",
+    "category": "밈/트렌드",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "사람이지쳤잖아",
+    "is_typo": true,
+    "corrected_keyword": "사람이 지쳤잖아",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "써이",
+    "is_typo": true,
+    "corrected_keyword": "서이",
+    "description": null,
+    "category": null,
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "허걱",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "허걱은 놀람이나 당황을 표현하는 감탄사 '헉'의 강조형으로, 2020년대 이후 트위치 등 온라인 커뮤니티에서 예상치 못한 발언에 반응하는 밈으로 쓰인다.",
+    "category": "밈/트렌드",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "사랑 사랑 사랑",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "'사랑 사랑 사랑'은 1991년 김현식이 발표한 곡으로, 이후 박효신·바비킴 등이 리메이크해 부른 곡이다.",
+    "category": "음원",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "바라바줘요",
+    "is_typo": true,
+    "corrected_keyword": "바라봐줘요",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "plimate",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "plimate는 'Feels Right Today', 'Golden Weekend', 'Lucky Timing' 등의 곡을 발표한 해외 인디 계열 아티스트이다.",
+    "category": "아티스트",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "좋게 말하면 버틴거고",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "'좋게 말하면 버틴거고, 까놓고 말하면 버린거고'는 삶에 대한 애매한 태도를 위트있게 표현한 문구로, 스레드(Threads) 등 SNS에서 유행한 문장이다.",
+    "category": "밈/트렌드",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "ㅣ",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "의미 파악이 어려운 단문/입력 오류로 추정",
+    "category": "기타",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "basecamp love",
+    "is_typo": true,
+    "corrected_keyword": "love basecamp",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "이용권해지",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "멜론 등 음악 스트리밍 서비스의 이용권(구독) 해지 방법을 찾는 서비스 이용 관련 검색어이다.",
+    "category": "앱기능/서비스",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "리듬세상",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "리듬 세상(리듬 천국 시리즈)은 닌텐도에서 발매한 리듬 액션 게임으로, 음악에 맞춰 미니게임을 진행하는 것이 특징이다.",
+    "category": "지식",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "ej",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "EJ는 동명의 여러 아티스트를 지칭할 수 있는 이름으로, 케이팝 데몬 헌터스 OST로 유명해진 작곡가 겸 가수 EJAE, 보이그룹 &TEAM 멤버 EJ(변의주) 등이 있다.",
+    "category": "아티스트",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "조선힙합 살다보니 그렇더라",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "조선힙합_official이 발표한 곡 '살다보니...'를 가리키는 것으로 보이며, 힘들었던 순간도 결국 지나간다는 위로의 메시지를 담은 곡이다.",
+    "category": "음원",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "장한별 하늘아",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "장한별은 한국의 가수로, '하늘아'는 그녀가 부른 곡 중 하나이며 방송 '전설의 사내'에서도 열창한 바 있다.",
+    "category": "음원",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "인생은서툰여행이래",
+    "is_typo": true,
+    "corrected_keyword": "인생은 서툰 여행이래",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "파데코",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "파데코는 검색 결과상 명확한 의미를 특정하기 어려우며, 동명의 소규모 기업이나 음악 프로듀서 PATEKO 등과 관련될 가능성이 있으나 확실하지 않다.",
+    "category": "기타",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "dasies",
+    "is_typo": true,
+    "corrected_keyword": "Daisies",
+    "description": null,
+    "category": null,
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "nothingz",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "해외에 'NoThingz', 'The Nothingz' 등 이름이 유사한 소규모 인디 아티스트/밴드가 존재하나 특정 인물로 명확히 특정하기 어렵고, 국내(멜론)에는 잘 알려지지 않은 것으로 보인다.",
+    "category": "아티스트",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "agust",
+    "is_typo": true,
+    "corrected_keyword": "Agust D",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "sueyalike",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "sueyalike는 Spotify, Apple Music 등 해외 스트리밍 플랫폼에 'Petals in motion', 'Blooming momentum' 등 다수의 로파이/인디 성향 앨범을 발매한 아티스트이다.",
+    "category": "아티스트",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "oh well",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "'Oh Well'은 Fleetwood Mac(1969), Boyz II Men 등 여러 아티스트가 각각 발표한 동명의 곡 제목으로, 특정 원곡을 찾으려는 검색으로 추정된다.",
+    "category": "음원",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "i kept the light on",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "'I Kept The Light On'은 2026년 발매된 Mikhail Bennett, Don Kai 등의 해외 곡 제목으로, 국내 플랫폼에 검색 결과가 잘 매칭되지 않는 인디 음원으로 보인다.",
+    "category": "음원",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "ヤラララ",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "한국인 보컬로이드 프로듀서 AnythingBecomeMoe가 2026년 5월 발표한 곡으로, 카사네 테토(重音テト)가 보컬을 맡았으며 유튜브에서 천만 조회수를 돌파해 화제가 된 노래이다.",
+    "category": "음원",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "성리 뜬소문",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "가수 성리가 MBN '전설의 사내(무명전설)'에서 부른 방미의 곡 '뜬소문' 커버 무대를 가리키는 검색어이다.",
+    "category": "음원",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "uyoung wave",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "UYoung Wave(유영웨이브)는 Spotify, Apple Music, YouTube 등에서 활동하는 감성적인 플레이리스트형 아티스트/채널로 여러 앨범을 발매했다.",
+    "category": "아티스트",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "don`t tell your dream",
+    "is_typo": true,
+    "corrected_keyword": "Don't Tell Your Dreams (LOVIXX, STOSLIV)",
+    "description": null,
+    "category": null,
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "스파이더맨 브랜드뉴데이",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "2026년 7월 29일 한국에서 개봉한 마블 영화 '스파이더맨: 브랜드 뉴 데이'를 가리키는 검색어로, 영화 자체를 지칭하며 별도의 OST 음반도 존재한다.",
+    "category": "지식",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "오직 너이길",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "'오직 너이길'이라는 문구와 명확히 일치하는 곡, 작품, 아티스트를 찾을 수 없어 검색 의도를 특정하기 어렵다.",
+    "category": "기타",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "민찬가",
+    "is_typo": true,
+    "corrected_keyword": "만찬가(晩餐歌)",
+    "description": null,
+    "category": null,
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "함수",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "'함수(函數)'는 수학·프로그래밍에서 쓰이는 개념으로, 음악과는 무관한 일반 지식성 검색어로 보인다.",
+    "category": "지식",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "zinaflow",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "AI 기술을 활용해 감성적인 힙합·알앤비 음악을 만드는 아티스트/프로젝트명으로, 스포티파이·애플뮤직 등에 'Sweet on You' 등의 트랙이 등록되어 있다.",
+    "category": "아티스트",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "bys",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "국내 음악과 관련된 명확한 정보는 확인되지 않으며, 해외에는 호주의 화장품 브랜드 'BYS Cosmetics'가 존재하나 멜론 검색어와의 연관성은 뚜렷하지 않다.",
+    "category": "기타",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "래드벨벳",
+    "is_typo": true,
+    "corrected_keyword": "레드벨벳",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "r",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "의미 파악이 어려운 단문/입력 오류로 추정",
+    "category": "기타",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "차쿤에네스",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "2000년대 인터넷에서 화제였던 듀오 '차쿤&에네스'로, 대표곡 '눈물'이 실화를 바탕으로 했다고 알려지며 큰 인기를 얻었으나 이후 내용이 왜곡된 것으로 드러나 명예훼손 논란이 있었다.",
+    "category": "아티스트",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "제",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "의미 파악이 어려운 단문/입력 오류로 추정",
+    "category": "기타",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "아이우",
+    "is_typo": true,
+    "corrected_keyword": "아이유",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "l",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "의미 파악이 어려운 단문/입력 오류로 추정",
+    "category": "기타",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "이창섭 잔소리",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "그룹 비투비(BTOB) 멤버 이창섭이 방송이나 유튜브에서 종종 언급하는, 어머니로부터 지출 습관 등으로 잔소리를 듣는 일화를 가리키는 표현이다.",
+    "category": "아티스트",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "류우녕",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "중국의 배우 겸 가수 류우녕(刘宇宁, Liu Yuning)으로, 스트리트 버스킹과 방송 출연으로 인기를 얻어 배우로도 활동하고 있는 인물이다.",
+    "category": "아티스트",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "나도 같은 일년",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "정확한 대상을 특정하기 어려운 검색어로, 노래 가사나 특정 문구의 일부로 추정되나 이를 뒷받침할 명확한 근거는 찾지 못했다.",
+    "category": "기타",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "아사히",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "YG엔터테인먼트 소속 보이그룹 트레저(TREASURE)의 멤버 아사히로, 작사·작곡에도 참여하는 프로듀서형 아이돌이다.",
+    "category": "아티스트",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "호시아이",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "일본 보컬로이드 프로듀서 아마츠키(天月)가 부른 노래 'ホシアイ(호시아이)'로, 칠석날 견우와 직녀의 만남을 뜻하는 제목의 곡이다.",
+    "category": "음원",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "힌로로",
+    "is_typo": true,
+    "corrected_keyword": "한로로",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "에스피",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "나무위키에 따르면 모바일 게임 '트릭컬 리바이브'에 등장하는 캐릭터 이름이 '에스피'이며, 이 외에도 동명의 회사·제품명 등이 존재해 음악과 직접적 관련은 없는 것으로 보인다.",
+    "category": "지식",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "다윗 ost",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "애니메이션 영화 '다윗'의 OST로, 배우 박보검이 더빙과 함께 '빛을 따라'를 부르고 차지연과 듀엣곡 '나의 주님'을 노래했다.",
+    "category": "음원",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "circle for you",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "검색 결과로는 동일한 제목의 뚜렷한 곡이나 아티스트를 특정하기 어려웠으며, 유사한 이름의 건강기능식품 브랜드 등만 확인되어 정확한 실체 파악이 어렵다.",
+    "category": "기타",
+    "confidence": "low"
+  },
+  {
+    "search_keyword": "존박 러브어택",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "가수 존박이 걸그룹 리센느(RESCENE)의 곡 'LOVE ATTACK(러브어택)'을 자신의 유튜브 채널에서 커버한 버전으로, 편곡에 신경 쓴 점이 화제가 되며 인기를 얻었다.",
+    "category": "음원",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "와이드씽",
+    "is_typo": true,
+    "corrected_keyword": "와일드씽",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "넘버블럭스",
+    "is_typo": true,
+    "corrected_keyword": "넘버블록스",
+    "description": null,
+    "category": null,
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "배민",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "배달의민족(배민)은 우아한형제들이 운영하는 국내 대표 배달 음식 주문 애플리케이션으로, 음악과는 무관한 서비스명이다.",
+    "category": "지식",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "진건호",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "SNS(인스타그램·스레드) 활동 내역을 볼 때 팀 빅터코리아 소속으로 활동하는 배드민턴 코치·선수로 추정되며, 음악과는 관련이 없는 인물이다.",
+    "category": "기타",
+    "confidence": "medium"
+  },
+  {
+    "search_keyword": "becca packer",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "Becca Packer는 미국 뉴욕 출신으로 버클리음대를 졸업한 인디 록 성어송라이터로, 슈게이즈와 90년대 그런지 영향을 받은 음악을 만들며 LA를 기반으로 활동한다.",
+    "category": "아티스트",
+    "confidence": "high"
+  },
+  {
+    "search_keyword": "a20 may",
+    "is_typo": false,
+    "corrected_keyword": null,
+    "description": "A2O MAY(A20 MAY)는 이수만이 설립한 A2O 엔터테인먼트 소속의 5인조 다국적(중국계) 걸그룹으로, 2024년 12월 'Under My Skin'으로 데뷔했다.",
+    "category": "아티스트",
+    "confidence": "high"
+  }
+]
