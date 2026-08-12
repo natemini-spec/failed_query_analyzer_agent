@@ -71,11 +71,11 @@ function buildPrompt(items) {
 
 For EACH item below (already classified as non-typo, with a category and grounded description from a previous step), extract:
 
-1. "self_entity": ONLY if category is "아티스트" or "음원" AND the entity itself is a NON-Korean (foreign) act/song (per the description) — i.e. this is specifically for the "foreign artist/song synonym not handled by Melon search" case. Output { "type": "artist"|"song", "is_domestic": false, "name_original": "<official name in its native script/spelling>", "name_english": "<English phonetic transliteration/romanization>" }. If domestic or category isn't 아티스트/음원, set self_entity to null.
+1. "self_entity": ONLY if category is "아티스트" or "음원" AND the entity itself is a NON-Korean (foreign) act/song (per the description) — i.e. this is specifically for the "foreign artist/song synonym not handled by Melon search" case. Output { "type": "artist"|"song", "is_domestic": false, "name_original": "<official name in its native script/spelling>", "name_english": "<English phonetic transliteration/romanization>", "artist_name_original": "...", "artist_name_english": "..." or null }. The "artist_name_*" fields are ONLY needed when type="song" — they identify WHO performs that song, and are used later to reject a same-titled-but-wrong-artist song match (song titles are often generic/reused by many artists). Omit/null artist_name_* when type="artist" (the self entity already IS the artist). If domestic or category isn't 아티스트/음원, set self_entity to null.
 
 2. "mentioned_artist": if the description explicitly names a REAL, SPECIFIC artist different from (or clarifying) the search keyword itself (e.g. description "가수 성리가 ... 방미의 곡 '뜬소문' 커버" mentions artist 성리) — output { "name_original": "...", "is_domestic": true/false, "name_english": "..." or null (null if is_domestic=true, since domestic names don't need an English transliteration query) }. If no specific artist is named in the description, set to null.
 
-3. "mentioned_song": if the description explicitly names a REAL, SPECIFIC song title different from (or clarifying) the search keyword itself (e.g. the same example mentions the original song '뜬소문') — output { "name_original": "...", "is_domestic": true/false, "name_english": "..." or null }. If no specific song is named, set to null.
+3. "mentioned_song": if the description explicitly names a REAL, SPECIFIC song title different from (or clarifying) the search keyword itself (e.g. the same example mentions the original song '뜬소문' performed by 성리) — output { "name_original": "...", "is_domestic": true/false, "name_english": "..." or null, "artist_name_original": "<the artist who performs THIS song, per the description>", "artist_name_english": "..." or null }. Song titles are frequently generic and reused across many unrelated artists (e.g. "눈물"/"Tears" has dozens of versions) — "artist_name_original" is REQUIRED whenever you set mentioned_song (best-effort from the description; only null if the description truly gives no performer name at all), because it will be used to reject search matches by the wrong artist. If no specific song is named, set mentioned_song to null.
 
 4. "fallback_theme_keywords": ALWAYS provide exactly 3-4 short Korean topic/theme/genre keywords (e.g. "국악 밈", "여름 감성 발라드", "게임 커뮤니티 용어") that Melon could use for a related-content/theme recommendation, based on the description — this is used as a fallback ONLY when no real Melon content match is found downstream, so generate it regardless of whether you think a match exists. Do NOT mention or reference other platforms (e.g. 스포티파이/Spotify, 애플뮤직/Apple Music, 유튜브/YouTube, 틱톡/TikTok, 샤잠/Shazam, 인스타그램/Instagram, 사운드클라우드/SoundCloud) inside the keywords themselves — these are about where the keyword was found, not a Melon theme/genre. E.g. write "글로벌 인디음악" or "인디 드림팝", NOT "스포티파이 인디아티스트" or "유튜브 커버곡".
 
@@ -86,9 +86,9 @@ Return ONLY a JSON array (no markdown fences, no extra prose), one object per it
 [
   {
     "search_keyword": "...",
-    "self_entity": null | { "type": "artist"|"song", "is_domestic": false, "name_original": "...", "name_english": "..." },
+    "self_entity": null | { "type": "artist"|"song", "is_domestic": false, "name_original": "...", "name_english": "...", "artist_name_original": "..." or null, "artist_name_english": "..." or null },
     "mentioned_artist": null | { "name_original": "...", "is_domestic": true/false, "name_english": "..." or null },
-    "mentioned_song": null | { "name_original": "...", "is_domestic": true/false, "name_english": "..." or null },
+    "mentioned_song": null | { "name_original": "...", "is_domestic": true/false, "name_english": "..." or null, "artist_name_original": "..." or null, "artist_name_english": "..." or null },
     "fallback_theme_keywords": ["...", "...", "..."]
   },
   ...

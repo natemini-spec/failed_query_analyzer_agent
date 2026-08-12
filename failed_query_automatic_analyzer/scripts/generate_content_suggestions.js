@@ -69,7 +69,10 @@ async function buildSuggestion(entityRow) {
   // Case 1: 해외 아티스트/곡 동의어 매핑 제안
   const self = entityRow.self_entity;
   if (self && self.is_domestic === false) {
-    const match = await findBestMatch(self.type, queriesFor(self));
+    const selfOpts = self.type === 'song'
+      ? { requireArtistMatch: [self.artist_name_original, self.artist_name_english].filter(Boolean) }
+      : {};
+    const match = await findBestMatch(self.type, queriesFor(self), selfOpts);
     if (match) {
       foundAny = true;
       const namePart = self.name_english && self.name_english !== self.name_original
@@ -91,9 +94,16 @@ async function buildSuggestion(entityRow) {
     }
   }
 
-  // Case 3: 언급된 관련 곡
+  // Case 3: 언급된 관련 곡 — 곡 제목은 여러 아티스트가 재사용하는 경우가 많아
+  // (예: "눈물"), 언급된 아티스트의 원어명/영문독음명과 부분일치하지 않는 결과는 제외한다.
   if (entityRow.mentioned_song) {
-    const match = await findBestMatch('song', queriesFor(entityRow.mentioned_song));
+    const songArtistNames = [
+      entityRow.mentioned_song.artist_name_original,
+      entityRow.mentioned_song.artist_name_english,
+    ].filter(Boolean);
+    const match = await findBestMatch('song', queriesFor(entityRow.mentioned_song), {
+      requireArtistMatch: songArtistNames,
+    });
     if (match) {
       foundAny = true;
       suggestion.suggestion_related_song_id = match.id;

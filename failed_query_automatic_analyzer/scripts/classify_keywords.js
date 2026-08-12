@@ -59,6 +59,8 @@ STEP 2 — If NOT a typo (is_typo=false): use web search to research what this k
 - 앱기능/서비스 (Melon app/service feature or menu term, e.g. 해지/쿠폰/투표/이용권/내정보)
 - 기타 (other — junk/unidentifiable input, or anything that doesn't fit the above)
 
+Search strategy — apply a music-relevance prior: every one of these keywords was typed into a MUSIC STREAMING SERVICE's search box, so the user almost certainly meant something music-related (an artist, band, producer, label, song, or album), even if the term is a small/new/obscure act. Before settling on an unrelated generic meaning, run at least one search specifically qualified with music terms (e.g. "<keyword> 아티스트", "<keyword> 가수", "<keyword> 뮤지션", "<keyword> 음악 프로듀서", "<keyword> music artist", "<keyword> band") to check for a plausible music-industry match — a small Spotify/SoundCloud artist, a producer alias, a label, a session musician, etc. Only fall back to an unrelated interpretation (e.g. a classic novel, a cosmetics brand, a company name, a generic dictionary word) if a dedicated music-focused search turns up no credible music entity at all. Do not let an unrelated meaning "win" by default just because it's more famous or easier to find — the music-context interpretation takes priority whenever it's genuinely plausible, even with lower confidence.
+
 Special guidance: if a keyword is a bare single character, jamo, or otherwise too short/random to identify any meaning, do NOT guess — set is_typo=false, category="기타", description="의미 파악이 어려운 단문/입력 오류로 추정", confidence="low".
 
 Keywords to analyze:

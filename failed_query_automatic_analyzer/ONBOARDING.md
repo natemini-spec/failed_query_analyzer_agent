@@ -15,19 +15,42 @@ Melon 검색 실패 키워드(Redash 쿼리 16305)를 매주 자동으로 다운
 
 내부 git 저장소를 clone 하거나, 공유된 압축본을 받아 압축 해제합니다.
 
-## 3. Redash API Key 설정
+## 3. 컨트롤 패널로 설정+실행하기 (권장)
 
-1. Redash 로그인 → 우측 상단 프로필 아이콘 → **Edit Profile**
-2. 페이지 하단 **API Key** 값을 복사 (재발급 버튼으로 새로 만들 수도 있음)
-   - ⚠️ 쿼리 페이지의 "Show API Key"(쿼리별 키)가 아니라 **개인 프로필의 API Key**를
-     써야 합니다. 쿼리별 키로는 이 쿼리의 파라미터(FROM/TO) 실행이 403으로 차단됩니다.
-3. 프로젝트 루트에서:
-   ```bash
-   cp .env.example .env
-   ```
-4. `.env` 파일을 열어 `REDASH_API_KEY=` 뒤에 복사한 키를 붙여넣고 저장
+터미널 명령을 외울 필요 없이 브라우저 화면에서 API Key 입력, Claude 로그인, 파이프라인
+실행을 모두 처리할 수 있습니다.
 
-## 4. Claude Code CLI 설치 및 로그인
+```bash
+node scripts/control_panel.js
+```
+
+실행하면 `http://127.0.0.1:4173`이 자동으로 브라우저에 열립니다 (**이 페이지는 본인
+컴퓨터 안에서만 열리는 로컬 서버**이며, 사내망이나 외부 어디에도 노출되지 않습니다).
+화면에서 순서대로:
+
+1. **Redash API Key 설정** — Redash 로그인 → 우측 상단 프로필 아이콘 → **Edit Profile**
+   → 하단 **API Key** 복사 (⚠️ 쿼리 페이지의 "Show API Key"가 아니라 **개인 프로필**의
+   키입니다 — 쿼리별 키로는 파라미터 실행이 403으로 막힙니다) → 패널에 붙여넣고 저장
+2. **Claude 로그인** — 버튼을 누르면 브라우저 인증 창이 열립니다. 이미 로그인되어 있다면
+   자동으로 "로그인됨"으로 표시되어 건너뛰어도 됩니다.
+3. **파이프라인 실행** — 버튼을 누르면 7단계가 순서대로 실행되고 로그가 실시간으로
+   화면에 표시됩니다 (총 10~20분 소요). 완료되면 하단 "최근 결과" 목록에서 대시보드를
+   바로 열 수 있습니다.
+
+문제가 생기면 언제든 8절(자주 겪는 문제)을 참고하거나, 아래 4~5절의 터미널 방식으로
+같은 작업을 직접 해볼 수 있습니다.
+
+## 4. (참고) 터미널로 직접 설정하기
+
+컨트롤 패널 대신 터미널을 선호하거나 문제를 진단해야 할 때 사용합니다.
+
+### Redash API Key
+```bash
+cp .env.example .env
+```
+`.env` 파일을 열어 `REDASH_API_KEY=` 뒤에 개인 프로필 API Key를 붙여넣고 저장합니다.
+
+### Claude Code CLI 설치 및 로그인
 
 macOS에서 `/usr/local`에 쓰기 권한이 없을 수 있어 사용자 홈 아래에 설치합니다.
 
@@ -52,7 +75,7 @@ claude auth login
 claude auth status   # "loggedIn": true 가 나오면 정상
 ```
 
-## 5. 수동 실행해보기
+## 5. 터미널로 직접 실행하기
 
 ```bash
 node scripts/run_weekly_pipeline.js
@@ -64,7 +87,6 @@ node scripts/run_weekly_pipeline.js
 node scripts/run_weekly_pipeline.js --asOf 2026-08-06
 ```
 
-전체 소요 시간은 대략 10~20분입니다 (Redash 쿼리 실행 수 분 + LLM 그라운딩 배치 여러 건).
 완료되면 `data/dashboard_<FROM>_<TO>.html` 파일을 브라우저로 더블클릭해서 열면 됩니다 —
 서버 없이 바로 열리는 자기완결형 페이지입니다.
 
@@ -86,6 +108,7 @@ crontab -e
 **주의 — 이 모델의 한계**: cron이 정해진 시각에 실제로 동작하려면 그 순간에 (1) 노트북이
 켜져 있고 로그인된 상태이며 (2) VPN이 연결되어 있어야 합니다. 노트북이 잠자기/꺼짐/VPN
 미접속 상태면 그 주는 조용히 실패합니다. 실행 후 `logs/`의 최신 로그를 가끔 확인해주세요.
+(컨트롤 패널은 cron과 별개로, 사람이 직접 열어서 수동 실행/재실행할 때 쓰는 도구입니다.)
 
 ## 7. 파이프라인 단계 요약
 
@@ -100,12 +123,17 @@ crontab -e
 | 7 | generate_dashboard.js | data/dashboard_{범위}.html |
 
 각 단계는 `--range YYYYMMDD_YYYYMMDD` 인자로 개별 실행도 가능합니다 (디버깅/재실행 시 유용).
+컨트롤 패널(`scripts/control_panel.js`)은 이 7단계 전체를 감싸는 UI일 뿐, 별도 로직은
+없습니다.
 
 ## 8. 자주 겪을 수 있는 문제
 
-- **`claude auth status`에서 loggedIn: false`** → `claude auth login` 다시 실행
+- **`claude auth status`에서 loggedIn: false`** → `claude auth login` 다시 실행 (컨트롤
+  패널의 "Claude 로그인 시작" 버튼도 동일)
 - **Redash 403 "potentially unsafe parameters"** → `.env`의 키가 쿼리별 키인지 확인, 개인
   프로필 API Key로 교체
 - **`classification_failed_{범위}.json` / `enrich_failed_{범위}.json` 파일이 생김** → 해당
   배치가 실패한 것. 파일 안의 키워드 목록을 보고 필요시 해당 단계만 재실행
 - **멜론 검색 API 응답이 비거나 타임아웃** → VPN 연결 상태 확인
+- **컨트롤 패널 브라우저 창이 자동으로 안 열림** → 터미널에 출력된 `http://127.0.0.1:4173`
+  주소를 직접 브라우저에 붙여넣기
