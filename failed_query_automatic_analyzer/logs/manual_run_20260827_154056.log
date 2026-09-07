@@ -1,0 +1,60 @@
+[pipeline] range=20260820_20260826 로 전체 파이프라인 시작
+
+=== [pipeline] 1/7 Redash CSV 다운로드 ===
+[failed-keywords] range=20260820~20260826 쿼리 실행 요청 중...
+[failed-keywords] job a3c99845-c95c-440c-a62c-de6daa261651 실행 중... (수 분 소요될 수 있음)
+[failed-keywords] 결과(id=5771005) CSV 다운로드 중...
+[failed-keywords] 저장 완료: /Users/marohan.min/failed_query_automatic_analyzer/data/failed_keywords_20260820_20260826.csv (1000행)
+
+=== [pipeline] 2/7 click_rate 필터링 ===
+[filter] 입력 파일: /Users/marohan.min/failed_query_automatic_analyzer/data/failed_keywords_20260820_20260826.csv
+[filter] click_rate <= 0.05 기준으로 필터링
+[filter] 전체 1000건 중 117건이 임계값 이하
+[filter] 저장 완료: /Users/marohan.min/failed_query_automatic_analyzer/data/low_click_rate_20260820_20260826.json
+
+=== [pipeline] 3/7 오탈자 판별 + 그라운딩 분류 ===
+[classify] 총 117건, 8개 배치(배치당 최대 15건)로 분류 시작
+[classify] 배치 1/8 (15건) 처리 중...
+[classify] 배치 2/8 (15건) 처리 중...
+[classify] 배치 3/8 (15건) 처리 중...
+[classify] 배치 4/8 (15건) 처리 중...
+[classify] 배치 5/8 (15건) 처리 중...
+[classify] 배치 6/8 (15건) 처리 중...
+[classify] 배치 7/8 (15건) 처리 중...
+[classify] 배치 8/8 (12건) 처리 중...
+[classify] 저장 완료: /Users/marohan.min/failed_query_automatic_analyzer/data/classification_raw_20260820_20260826.json (117/117건 성공)
+
+=== [pipeline] 4/7 분류 결과 병합 ===
+[merge] 총 117건 병합 완료
+[merge] 오탈자: 25건
+[merge] 유형별(오탈자 제외): {
+  "아티스트": 26,
+  "지식": 7,
+  "앱기능/서비스": 10,
+  "음원": 26,
+  "기타": 20,
+  "밈/트렌드": 3
+}
+[merge] 저장 완료: /Users/marohan.min/failed_query_automatic_analyzer/data/keyword_analysis_20260820_20260826.json
+[merge] 저장 완료: /Users/marohan.min/failed_query_automatic_analyzer/data/keyword_analysis_20260820_20260826.csv
+
+=== [pipeline] 5/7 엔티티 추출 ===
+[enrich] 오탈자 제외 92건 (단문/입력오류 8건은 LLM 호출 없이 제외), 6개 배치로 엔티티 추출 시작
+[enrich] 배치 1/6 (15건) 처리 중...
+[enrich] 배치 2/6 (15건) 처리 중...
+[enrich] 배치 3/6 (15건) 처리 중...
+[enrich] 배치 4/6 (15건) 처리 중...
+[enrich] 배치 5/6 (15건) 처리 중...
+[enrich] 배치 6/6 (9건) 처리 중...
+[enrich] 저장 완료: /Users/marohan.min/failed_query_automatic_analyzer/data/entity_extraction_20260820_20260826.json (92/92건, LLM 대상 84건 중 성공 84건)
+
+=== [pipeline] 6/7 콘텐츠 매핑 제안 생성 ===
+[suggest] 117건 중 오탈자 제외 대상에 대해 콘텐츠 매핑 생성 시작
+[suggest] 동의어 매핑 제안: 3건 / 관련 아티스트: 10건 / 관련 곡: 7건 / 테마 키워드(fallback): 68건
+[suggest] 저장 완료: /Users/marohan.min/failed_query_automatic_analyzer/data/content_mapping_20260820_20260826.json
+[suggest] 저장 완료: /Users/marohan.min/failed_query_automatic_analyzer/data/content_mapping_20260820_20260826.csv
+
+=== [pipeline] 7/7 대시보드 생성 ===
+[dashboard] 저장 완료: /Users/marohan.min/failed_query_automatic_analyzer/data/dashboard_20260820_20260826.html
+
+[pipeline] 완료: /Users/marohan.min/failed_query_automatic_analyzer/data/dashboard_20260820_20260826.html

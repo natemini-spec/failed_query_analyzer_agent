@@ -1,0 +1,1298 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>검색 실패 키워드 분석 대시보드 (2026-08-20 ~ 2026-08-26)</title>
+<style>
+  .viz-root {
+    color-scheme: light;
+    --surface-1: #fcfcfb;
+    --surface-2: #f5f4f1;
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted: #85837c;
+    --border: #e3e1dc;
+    --series-1: #2a78d6; --series-2: #eb6834; --series-3: #1baf7a;
+    --series-4: #eda100; --series-5: #e87ba4; --series-6: #008300;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .viz-root {
+      color-scheme: dark;
+      --surface-1: #1a1a19; --surface-2: #232322;
+      --text-primary: #ffffff; --text-secondary: #c3c2b7; --text-muted: #8b8a82;
+      --border: #35342f;
+      --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70;
+      --series-4: #c98500; --series-5: #d55181; --series-6: #008300;
+    }
+  }
+  :root[data-theme="dark"] .viz-root {
+    color-scheme: dark;
+    --surface-1: #1a1a19; --surface-2: #232322;
+    --text-primary: #ffffff; --text-secondary: #c3c2b7; --text-muted: #8b8a82;
+    --border: #35342f;
+    --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70;
+    --series-4: #c98500; --series-5: #d55181; --series-6: #008300;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; overflow-x: hidden; }
+  .viz-root {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Malgun Gothic", sans-serif;
+    background: var(--surface-1);
+    color: var(--text-primary);
+    padding: 24px;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  .subtitle { color: var(--text-secondary); font-size: 13px; margin: 0 0 24px; }
+  .stat-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+  .stat-tile {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    min-width: 140px;
+    flex: 1;
+  }
+  .stat-tile .value { font-size: 24px; font-weight: 700; }
+  .stat-tile .label { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+  section { margin-bottom: 32px; }
+  h2 { font-size: 15px; margin: 0 0 12px; color: var(--text-primary); }
+  .chart-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    overflow-x: auto;
+  }
+  .viz-chart { width: 100%; max-width: 640px; height: auto; display: block; }
+  .viz-cat-label { font-size: 12px; fill: var(--text-secondary); }
+  .viz-value-label { font-size: 12px; fill: var(--text-primary); }
+  .viz-track { fill: var(--surface-1); }
+  .viz-fill { transition: opacity 0.15s; }
+  .viz-bar:hover .viz-fill { opacity: 0.8; }
+
+  .controls { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .controls input, .controls select {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    border-radius: 6px;
+    padding: 7px 10px;
+    font-size: 13px;
+  }
+  .controls input { flex: 1; min-width: 200px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead th {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+    background: var(--surface-1);
+  }
+  tbody td { padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tbody tr:hover { background: var(--surface-2); }
+  td.num { text-align: right; white-space: nowrap; }
+  td.desc { max-width: 320px; color: var(--text-secondary); }
+  .table-wrap { max-height: 640px; overflow-y: auto; overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; }
+  table { min-width: 900px; }
+  a { color: var(--series-1); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .response-badge { white-space: nowrap; font-size: 12px; }
+  .count-note { font-size: 12px; color: var(--text-muted); margin-top: 8px; }
+</style>
+</head>
+<body>
+<div class="viz-root">
+  <h1>검색 실패 키워드 분석 대시보드</h1>
+  <p class="subtitle">기간: 2026-08-20 ~ 2026-08-26 · 생성 파일: content_mapping_20260820_20260826.csv</p>
+
+  <div class="stat-row">
+    <div class="stat-tile"><div class="value">117</div><div class="label">분석 대상 키워드 (click_rate ≤ 0.05)</div></div>
+    <div class="stat-tile"><div class="value">25</div><div class="label">오탈자/절단 표기 (21%)</div></div>
+    <div class="stat-tile"><div class="value">92</div><div class="label">오탈자 아님 (그라운딩 분류)</div></div>
+    <div class="stat-tile"><div class="value">28</div><div class="label">대응 제안 생성됨</div></div>
+  </div>
+
+  <section>
+    <h2>유형별 분포 (오탈자 제외 92건)</h2>
+    <div class="chart-card"><svg class="viz-chart" viewBox="0 0 640 238" role="img" aria-label="유형별 키워드 분포">
+        <g class="viz-bar" data-label="아티스트" data-count="26">
+          <text x="140" y="24" text-anchor="end" dominant-baseline="middle" class="viz-cat-label">아티스트</text>
+          <rect x="150" y="10" width="432" height="28" rx="4" class="viz-track"></rect>
+          <rect x="150" y="10" width="430" height="28" rx="4" class="viz-fill" style="fill:var(--series-1)"></rect>
+          <text x="588" y="24" dominant-baseline="middle" class="viz-value-label">26 (28%)</text>
+        </g>
+        <g class="viz-bar" data-label="음원" data-count="26">
+          <text x="140" y="62" text-anchor="end" dominant-baseline="middle" class="viz-cat-label">음원</text>
+          <rect x="150" y="48" width="432" height="28" rx="4" class="viz-track"></rect>
+          <rect x="150" y="48" width="430" height="28" rx="4" class="viz-fill" style="fill:var(--series-2)"></rect>
+          <text x="588" y="62" dominant-baseline="middle" class="viz-value-label">26 (28%)</text>
+        </g>
+        <g class="viz-bar" data-label="밈/트렌드" data-count="3">
+          <text x="140" y="100" text-anchor="end" dominant-baseline="middle" class="viz-cat-label">밈/트렌드</text>
+          <rect x="150" y="86" width="432" height="28" rx="4" class="viz-track"></rect>
+          <rect x="150" y="86" width="49.61538461538462" height="28" rx="4" class="viz-fill" style="fill:var(--series-3)"></rect>
+          <text x="207.6153846153846" y="100" dominant-baseline="middle" class="viz-value-label">3 (3%)</text>
+        </g>
+        <g class="viz-bar" data-label="지식" data-count="7">
+          <text x="140" y="138" text-anchor="end" dominant-baseline="middle" class="viz-cat-label">지식</text>
+          <rect x="150" y="124" width="432" height="28" rx="4" class="viz-track"></rect>
+          <rect x="150" y="124" width="115.76923076923076" height="28" rx="4" class="viz-fill" style="fill:var(--series-4)"></rect>
+          <text x="273.7692307692308" y="138" dominant-baseline="middle" class="viz-value-label">7 (8%)</text>
+        </g>
+        <g class="viz-bar" data-label="앱기능/서비스" data-count="10">
+          <text x="140" y="176" text-anchor="end" dominant-baseline="middle" class="viz-cat-label">앱기능/서비스</text>
+          <rect x="150" y="162" width="432" height="28" rx="4" class="viz-track"></rect>
+          <rect x="150" y="162" width="165.3846153846154" height="28" rx="4" class="viz-fill" style="fill:var(--series-5)"></rect>
+          <text x="323.38461538461536" y="176" dominant-baseline="middle" class="viz-value-label">10 (11%)</text>
+        </g>
+        <g class="viz-bar" data-label="기타" data-count="20">
+          <text x="140" y="214" text-anchor="end" dominant-baseline="middle" class="viz-cat-label">기타</text>
+          <rect x="150" y="200" width="432" height="28" rx="4" class="viz-track"></rect>
+          <rect x="150" y="200" width="330.7692307692308" height="28" rx="4" class="viz-fill" style="fill:var(--series-6)"></rect>
+          <text x="488.7692307692308" y="214" dominant-baseline="middle" class="viz-value-label">20 (22%)</text>
+        </g></svg></div>
+  </section>
+
+  <section>
+    <h2>대응 제안 분포 (전체 117건)</h2>
+    <div class="chart-card"><svg class="viz-chart" viewBox="0 0 640 124" role="img" aria-label="대응 제안 분포">
+        <g class="viz-bar" data-label="오탈자 교정" data-count="25">
+          <text x="140" y="24" text-anchor="end" dominant-baseline="middle" class="viz-cat-label">오탈자 교정</text>
+          <rect x="150" y="10" width="432" height="28" rx="4" class="viz-track"></rect>
+          <rect x="150" y="10" width="120.7865168539326" height="28" rx="4" class="viz-fill" style="fill:var(--series-1)"></rect>
+          <text x="278.7865168539326" y="24" dominant-baseline="middle" class="viz-value-label">25 (21%)</text>
+        </g>
+        <g class="viz-bar" data-label="동의어 등록" data-count="3">
+          <text x="140" y="62" text-anchor="end" dominant-baseline="middle" class="viz-cat-label">동의어 등록</text>
+          <rect x="150" y="48" width="432" height="28" rx="4" class="viz-track"></rect>
+          <rect x="150" y="48" width="14.49438202247191" height="28" rx="4" class="viz-fill" style="fill:var(--series-2)"></rect>
+          <text x="172.4943820224719" y="62" dominant-baseline="middle" class="viz-value-label">3 (3%)</text>
+        </g>
+        <g class="viz-bar" data-label="대응 없음" data-count="89">
+          <text x="140" y="100" text-anchor="end" dominant-baseline="middle" class="viz-cat-label">대응 없음</text>
+          <rect x="150" y="86" width="432" height="28" rx="4" class="viz-track"></rect>
+          <rect x="150" y="86" width="430" height="28" rx="4" class="viz-fill" style="fill:var(--series-3)"></rect>
+          <text x="588" y="100" dominant-baseline="middle" class="viz-value-label">89 (76%)</text>
+        </g></svg></div>
+    <p class="count-note">우선순위: 오탈자 교정 &gt; 동의어 등록 &gt; 대응 없음. "동의어 등록"은 현재 검색어를 대표어(멜론 공식명)의 동의어로 바로 등록할 수 있는 경우만 해당하며, 원본 아티스트/곡 정보나 테마 키워드는 실제 대응 액션이 아니므로 대응 없음으로 집계됩니다(원본 아티스트/곡 링크는 상세에서 참고용으로 확인 가능).</p>
+  </section>
+
+  <section>
+    <h2>전체 키워드 목록</h2>
+    <div class="controls">
+      <input type="text" id="searchBox" placeholder="키워드 또는 설명으로 검색...">
+      <select id="categoryFilter"><option value="">전체 유형</option></select>
+      <select id="responseFilter"><option value="">전체 대응 제안</option></select>
+    </div>
+    <div class="table-wrap">
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th>검색어</th><th>검색량</th><th>클릭률</th><th>유형</th><th>설명</th><th>대응 제안</th><th>상세</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-category="아티스트" data-response="대응 없음" data-search="효리수 소녀시대의 효연·유리·수영으로 구성된 신규 유닛 '효리수'로, 2026년 8월 31일 싱글 '스키비디(skibidi)'로 정식 데뷔한 최신 트렌드 아티스트이다.">
+        <td>효리수</td>
+        <td class="num">11096</td>
+        <td class="num">2.13%</td>
+        <td>아티스트</td>
+        <td class="desc">소녀시대의 효연·유리·수영으로 구성된 신규 유닛 '효리수'로, 2026년 8월 31일 싱글 '스키비디(Skibidi)'로 정식 데뷔한 최신 트렌드 아티스트이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="지식" data-response="대응 없음" data-search="겜작 '겜'(게임)과 '작'(파밍/육성 작업)의 합성어로, 게임에서 스탯이나 재화를 얻기 위해 반복 플레이하는 행위를 가리키는 게임 커뮤니티 은어이며 음악과는 무관하다.">
+        <td>겜작</td>
+        <td class="num">4231</td>
+        <td class="num">2.43%</td>
+        <td>지식</td>
+        <td class="desc">'겜'(게임)과 '작'(파밍/육성 작업)의 합성어로, 게임에서 스탯이나 재화를 얻기 위해 반복 플레이하는 행위를 가리키는 게임 커뮤니티 은어이며 음악과는 무관하다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="앱기능/서비스" data-response="대응 없음" data-search="뮤직웨이브 멜론(카카오엔터테인먼트)이 운영하는 음악 감상·채팅 서비스로, 주제별 채널에서 실시간 재생 음악을 다른 이용자들과 함께 듣고 소통할 수 있는 멜론 앱 내 기능이다.">
+        <td>뮤직웨이브</td>
+        <td class="num">1643</td>
+        <td class="num">3.83%</td>
+        <td>앱기능/서비스</td>
+        <td class="desc">멜론(카카오엔터테인먼트)이 운영하는 음악 감상·채팅 서비스로, 주제별 채널에서 실시간 재생 음악을 다른 이용자들과 함께 듣고 소통할 수 있는 멜론 앱 내 기능이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="음원" data-response="대응 없음" data-search="무엇이든 해낼 당신에게 아티스트 jehoda가 2026년 4월 발매한 싱글 곡으로, 힘든 과정을 견뎌내면 행복이 온다는 응원과 위로의 메시지를 담고 있다.">
+        <td>무엇이든 해낼 당신에게</td>
+        <td class="num">1404</td>
+        <td class="num">0.00%</td>
+        <td>음원</td>
+        <td class="desc">아티스트 jehoda가 2026년 4월 발매한 싱글 곡으로, 힘든 과정을 견뎌내면 행복이 온다는 응원과 위로의 메시지를 담고 있다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="무엇이든 해낼 무엇이든 해낼 당신에게">
+        <td>무엇이든 해낼</td>
+        <td class="num">1017</td>
+        <td class="num">4.42%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 무엇이든 해낼 당신에게</td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="잔울 잔울(janull)은 스포티파이·애플뮤직·유튜브 등에서 활동하는 국내 인디 뮤지션으로, 감성적인 발라드 곡들을 다수 발표했다.">
+        <td>잔울</td>
+        <td class="num">951</td>
+        <td class="num">2.00%</td>
+        <td>아티스트</td>
+        <td class="desc">잔울(Janull)은 스포티파이·애플뮤직·유튜브 등에서 활동하는 국내 인디 뮤지션으로, 감성적인 발라드 곡들을 다수 발표했다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="빅밸 빅뱅">
+        <td>빅밸</td>
+        <td class="num">749</td>
+        <td class="num">0.00%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 빅뱅</td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="biig biig piig">
+        <td>biig</td>
+        <td class="num">719</td>
+        <td class="num">0.97%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: Biig Piig</td>
+      </tr>
+<tr data-category="음원" data-response="대응 없음" data-search="국어별동대 유튜브 크리에이터 그룹 고고프렌즈(백현·아름·평학·모양몬·모찌엘)가 자체 국어 학습 웹툰을 바탕으로 2026년 7월 발매한 노래 제목이다.">
+        <td>국어별동대</td>
+        <td class="num">636</td>
+        <td class="num">0.00%</td>
+        <td>음원</td>
+        <td class="desc">유튜브 크리에이터 그룹 고고프렌즈(백현·아름·평학·모양몬·모찌엘)가 자체 국어 학습 웹툰을 바탕으로 2026년 7월 발매한 노래 제목이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="soonflow soonflow는 스포티파이·샤잠 등에 곡을 발표 중인 팝 아티스트로, 'the best is yet to come' 등의 곡을 선보였다.">
+        <td>soonflow</td>
+        <td class="num">627</td>
+        <td class="num">0.00%</td>
+        <td>아티스트</td>
+        <td class="desc">soonflow는 스포티파이·샤잠 등에 곡을 발표 중인 팝 아티스트로, 'The Best Is Yet to Come' 등의 곡을 선보였다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="음원" data-response="대응 없음" data-search="이런 여유 너무 좋고 e:um이 2026년 6월 발매한 앨범 '언제까지나' 수록곡으로, 여유로운 순간의 편안함을 노래한 팝 장르 곡이다.">
+        <td>이런 여유 너무 좋고</td>
+        <td class="num">569</td>
+        <td class="num">4.57%</td>
+        <td>음원</td>
+        <td class="desc">E:um이 2026년 6월 발매한 앨범 '언제까지나' 수록곡으로, 여유로운 순간의 편안함을 노래한 팝 장르 곡이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="음원" data-response="대응 없음" data-search="사람이 지쳤잖아 아티스트 223.32가 2026년 1월 발매한 싱글 곡으로, 사람에 지친 마음을 담은 노래이다.">
+        <td>사람이 지쳤잖아</td>
+        <td class="num">529</td>
+        <td class="num">3.59%</td>
+        <td>음원</td>
+        <td class="desc">아티스트 223.32가 2026년 1월 발매한 싱글 곡으로, 사람에 지친 마음을 담은 노래이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="앱기능/서비스" data-response="대응 없음" data-search="해지 멜론 이용권(정기결제) 해지를 의미하는 서비스 메뉴 용어이다.">
+        <td>해지</td>
+        <td class="num">514</td>
+        <td class="num">0.00%</td>
+        <td>앱기능/서비스</td>
+        <td class="desc">멜론 이용권(정기결제) 해지를 의미하는 서비스 메뉴 용어이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="음원" data-response="대응 없음" data-search="불행했으면해 정확히 일치하는 원곡은 특정하기 어려우나, '불행했으면 좋겠어'(byssblue 등)처럼 상대가 불행하길 바라는 감정을 제목으로 한 유사한 국내 곡들이 존재해 곡 제목 검색으로 추정된다.">
+        <td>불행했으면해</td>
+        <td class="num">478</td>
+        <td class="num">3.77%</td>
+        <td>음원</td>
+        <td class="desc">정확히 일치하는 원곡은 특정하기 어려우나, '불행했으면 좋겠어'(ByssBlue 등)처럼 상대가 불행하길 바라는 감정을 제목으로 한 유사한 국내 곡들이 존재해 곡 제목 검색으로 추정된다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>원본 곡: <a href="https://www.melon.com/song/detail.htm?songId=38448139" target="_blank" rel="noopener">불행했으면 좋겠어 (Feat. 나의 노래 메모장)</a></td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="세드레인 새드레인 (sad rain, 성리)">
+        <td>세드레인</td>
+        <td class="num">473</td>
+        <td class="num">0.00%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 새드레인 (Sad Rain, 성리)</td>
+      </tr>
+<tr data-category="지식" data-response="대응 없음" data-search="무엇이든해낼당신에게 작가 남상훈이 쓴 에세이 '무엇이든 해낼 당신에게'의 제목으로, 음악보다는 위로·자기계발을 주제로 한 도서명에 해당한다.">
+        <td>무엇이든해낼당신에게</td>
+        <td class="num">468</td>
+        <td class="num">0.00%</td>
+        <td>지식</td>
+        <td class="desc">작가 남상훈이 쓴 에세이 '무엇이든 해낼 당신에게'의 제목으로, 음악보다는 위로·자기계발을 주제로 한 도서명에 해당한다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="기타" data-response="대응 없음" data-search="ㅇ 의미 파악이 어려운 단문/입력 오류로 추정">
+        <td>ㅇ</td>
+        <td class="num">442</td>
+        <td class="num">1.81%</td>
+        <td>기타</td>
+        <td class="desc">의미 파악이 어려운 단문/입력 오류로 추정</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="기타" data-response="대응 없음" data-search="음만노 웹 검색으로도 명확히 대응되는 아티스트, 곡, 서비스 용어를 찾지 못했으며 의미가 불분명한 입력으로 추정된다.">
+        <td>음만노</td>
+        <td class="num">430</td>
+        <td class="num">0.00%</td>
+        <td>기타</td>
+        <td class="desc">웹 검색으로도 명확히 대응되는 아티스트, 곡, 서비스 용어를 찾지 못했으며 의미가 불분명한 입력으로 추정된다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="밈/트렌드" data-response="대응 없음" data-search="먼작귀 일본 작가 나가노가 연재하는 만화 '치이카와'의 한국식 별칭('먼가 작고 귀여운 녀석'의 줄임말)으로, 2020년대 한일 양국에서 큰 인기를 끈 캐릭터 ip이다.">
+        <td>먼작귀</td>
+        <td class="num">385</td>
+        <td class="num">0.00%</td>
+        <td>밈/트렌드</td>
+        <td class="desc">일본 작가 나가노가 연재하는 만화 '치이카와'의 한국식 별칭('먼가 작고 귀여운 녀석'의 줄임말)으로, 2020년대 한일 양국에서 큰 인기를 끈 캐릭터 IP이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="이런 여유 이런 여유 너무 좋고">
+        <td>이런 여유</td>
+        <td class="num">370</td>
+        <td class="num">4.59%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 이런 여유 너무 좋고</td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="big 단독 검색어로는 모호하지만 음악 서비스 맥락에서는 h1ghr music 소속 래퍼 겸 싱어송라이터 'big naughty(빅나티)'를 가리켰을 가능성이 높다.">
+        <td>big</td>
+        <td class="num">363</td>
+        <td class="num">4.41%</td>
+        <td>아티스트</td>
+        <td class="desc">단독 검색어로는 모호하지만 음악 서비스 맥락에서는 H1ghr Music 소속 래퍼 겸 싱어송라이터 'BIG Naughty(빅나티)'를 가리켰을 가능성이 높다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="로린디엘 '로린디엘(lorindiel)'은 ai 딥러닝·음성합성 기술로 만들어진 국내 가상(버추얼) 아티스트로, 유튜브 및 글로벌 음원 플랫폼에서 활동 중이다.">
+        <td>로린디엘</td>
+        <td class="num">349</td>
+        <td class="num">0.00%</td>
+        <td>아티스트</td>
+        <td class="desc">'로린디엘(Lorindiel)'은 AI 딥러닝·음성합성 기술로 만들어진 국내 가상(버추얼) 아티스트로, 유튜브 및 글로벌 음원 플랫폼에서 활동 중이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="기타" data-response="대응 없음" data-search="ㄱ 의미 파악이 어려운 단문/입력 오류로 추정">
+        <td>ㄱ</td>
+        <td class="num">345</td>
+        <td class="num">3.77%</td>
+        <td>기타</td>
+        <td class="desc">의미 파악이 어려운 단문/입력 오류로 추정</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="음원" data-response="동의어 등록" data-search="verano 스페인어로 '여름'을 뜻하며, 음악 맥락에서는 karol g와 feid가 함께한 최근 히트곡 'verano rosa'를 가리키는 검색으로 추정된다.">
+        <td>verano</td>
+        <td class="num">345</td>
+        <td class="num">4.35%</td>
+        <td>음원</td>
+        <td class="desc">스페인어로 '여름'을 뜻하며, 음악 맥락에서는 Karol G와 Feid가 함께한 최근 히트곡 'Verano Rosa'를 가리키는 검색으로 추정된다.</td>
+        <td class="response-badge" data-response-badge="동의어 등록">동의어 등록</td>
+        <td>대표어: 'Verano Rosa' / 동의어: 'verano' — <a href="https://www.melon.com/song/detail.htm?songId=39178997" target="_blank" rel="noopener">콘텐츠 보기</a></td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="빅뱡 빅뱅">
+        <td>빅뱡</td>
+        <td class="num">339</td>
+        <td class="num">0.00%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 빅뱅</td>
+      </tr>
+<tr data-category="기타" data-response="대응 없음" data-search="녹는가슴 웹 검색으로도 이 제목과 정확히 일치하는 곡이나 아티스트를 확인하지 못했으며, 의미를 특정하기 어려운 키워드이다.">
+        <td>녹는가슴</td>
+        <td class="num">331</td>
+        <td class="num">0.60%</td>
+        <td>기타</td>
+        <td class="desc">웹 검색으로도 이 제목과 정확히 일치하는 곡이나 아티스트를 확인하지 못했으며, 의미를 특정하기 어려운 키워드이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="지식" data-response="대응 없음" data-search="퍼피구조대 캐나다의 인기 유아용 애니메이션 'paw patrol'의 한국어 제목으로, 음악보다는 어린이 콘텐츠와 관련된 검색으로 보인다.">
+        <td>퍼피구조대</td>
+        <td class="num">327</td>
+        <td class="num">0.00%</td>
+        <td>지식</td>
+        <td class="desc">캐나다의 인기 유아용 애니메이션 'PAW Patrol'의 한국어 제목으로, 음악보다는 어린이 콘텐츠와 관련된 검색으로 보인다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="mellozen 'mellozen'은 '너랑 있는 지금', '이 순간이 소중해' 등을 발매한 국내 음악 아티스트(ai 기반 음악 프로젝트)이다.">
+        <td>mellozen</td>
+        <td class="num">326</td>
+        <td class="num">0.00%</td>
+        <td>아티스트</td>
+        <td class="desc">'mellozen'은 '너랑 있는 지금', '이 순간이 소중해' 등을 발매한 국내 음악 아티스트(AI 기반 음악 프로젝트)이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="34xp '34xp'는 'the beach', 'xplsve' 등의 앨범을 발매한 실제 음악 아티스트로, 여러 스트리밍 플랫폼에서 활동 중이다.">
+        <td>34xp</td>
+        <td class="num">319</td>
+        <td class="num">0.00%</td>
+        <td>아티스트</td>
+        <td class="desc">'34XP'는 'THE BEACH', 'XPLSVE' 등의 앨범을 발매한 실제 음악 아티스트로, 여러 스트리밍 플랫폼에서 활동 중이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="앱기능/서비스" data-response="대응 없음" data-search="주간인기상 멜론에서 발매 28일 이내 인기곡 20곡을 대상으로 매주 이용자 투표를 통해 1위를 선정하는 멜론 뮤직 어워드의 투표 서비스명이다.">
+        <td>주간인기상</td>
+        <td class="num">312</td>
+        <td class="num">0.96%</td>
+        <td>앱기능/서비스</td>
+        <td class="desc">멜론에서 발매 28일 이내 인기곡 20곡을 대상으로 매주 이용자 투표를 통해 1위를 선정하는 멜론 뮤직 어워드의 투표 서비스명이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="성리 세드레인 성리 새드 레인 (sad rain)">
+        <td>성리 세드레인</td>
+        <td class="num">310</td>
+        <td class="num">0.00%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 성리 새드 레인 (Sad Rain)</td>
+      </tr>
+<tr data-category="밈/트렌드" data-response="대응 없음" data-search="이런게행복이지뭐 '이런게 행복이지 뭐'는 소소한 일상 속 행복을 표현할 때 sns·유튜브 등에서 널리 쓰이는 문구로, 특정 음원이나 아티스트에 명확히 대응되지 않는 트렌드성 표현이다.">
+        <td>이런게행복이지뭐</td>
+        <td class="num">305</td>
+        <td class="num">4.26%</td>
+        <td>밈/트렌드</td>
+        <td class="desc">'이런게 행복이지 뭐'는 소소한 일상 속 행복을 표현할 때 SNS·유튜브 등에서 널리 쓰이는 문구로, 특정 음원이나 아티스트에 명확히 대응되지 않는 트렌드성 표현이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="zinaflow zinaflow는 ai 기반 힙합/r&amp;b 아티스트로, 'sweet trick', 'mood on me' 등의 앨범을 발매하며 spotify 등에서 활동하고 있다.">
+        <td>zinaflow</td>
+        <td class="num">301</td>
+        <td class="num">0.00%</td>
+        <td>아티스트</td>
+        <td class="desc">zinaflow는 AI 기반 힙합/R&amp;B 아티스트로, 'Sweet Trick', 'Mood On Me' 등의 앨범을 발매하며 Spotify 등에서 활동하고 있다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="앱기능/서비스" data-response="대응 없음" data-search="내정보 멜론 앱 내 회원정보 확인 및 관리 메뉴인 '내정보' 기능을 가리킨다.">
+        <td>내정보</td>
+        <td class="num">294</td>
+        <td class="num">0.68%</td>
+        <td>앱기능/서비스</td>
+        <td class="desc">멜론 앱 내 회원정보 확인 및 관리 메뉴인 '내정보' 기능을 가리킨다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="기타" data-response="대응 없음" data-search="무엇이든해낼 '무엇이든 해낼 수 있어' 류의 자기격려성 문구 일부로 추정되며, 특정 음원·아티스트와 명확히 연결되지 않는 단편적 검색어이다.">
+        <td>무엇이든해낼</td>
+        <td class="num">289</td>
+        <td class="num">2.77%</td>
+        <td>기타</td>
+        <td class="desc">'무엇이든 해낼 수 있어' 류의 자기격려성 문구 일부로 추정되며, 특정 음원·아티스트와 명확히 연결되지 않는 단편적 검색어이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="이런여유 이런 여유 너무 좋고 (e:um)">
+        <td>이런여유</td>
+        <td class="num">269</td>
+        <td class="num">2.23%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 이런 여유 너무 좋고 (E:um)</td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="helloping helloping(헬로핑)은 2025년 데뷔한 ai 보컬/작사 기반의 인디 아티스트로, '인생 뭐 있나', '놓을게' 등의 곡을 발매했다.">
+        <td>helloping</td>
+        <td class="num">265</td>
+        <td class="num">1.13%</td>
+        <td>아티스트</td>
+        <td class="desc">helloping(헬로핑)은 2025년 데뷔한 AI 보컬/작사 기반의 인디 아티스트로, '인생 뭐 있나', '놓을게' 등의 곡을 발매했다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="음원" data-response="대응 없음" data-search="verano! 'verano'(스페인어로 '여름')는 여러 아티스트가 사용한 동명의 곡 제목으로, karol g &amp; feid의 'verano rosa' 등 다양한 트랙이 존재한다.">
+        <td>verano!</td>
+        <td class="num">247</td>
+        <td class="num">2.43%</td>
+        <td>음원</td>
+        <td class="desc">'Verano'(스페인어로 '여름')는 여러 아티스트가 사용한 동명의 곡 제목으로, Karol G &amp; Feid의 'Verano Rosa' 등 다양한 트랙이 존재한다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>원본 곡: <a href="https://www.melon.com/song/detail.htm?songId=39178997" target="_blank" rel="noopener">Verano Rosa</a></td>
+      </tr>
+<tr data-category="기타" data-response="대응 없음" data-search="ㅅ 의미 파악이 어려운 단문/입력 오류로 추정">
+        <td>ㅅ</td>
+        <td class="num">246</td>
+        <td class="num">1.22%</td>
+        <td>기타</td>
+        <td class="desc">의미 파악이 어려운 단문/입력 오류로 추정</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="음원" data-response="대응 없음" data-search="고래보석 '고래보석'은 극장판 애니메이션 '사랑의 하츄핑: 고래보석의 전설'(2026년 8월 개봉)의 일부로, 해당 영화의 스페셜 ost 앨범과 관련된 검색어로 보인다.">
+        <td>고래보석</td>
+        <td class="num">244</td>
+        <td class="num">0.41%</td>
+        <td>음원</td>
+        <td class="desc">'고래보석'은 극장판 애니메이션 '사랑의 하츄핑: 고래보석의 전설'(2026년 8월 개봉)의 일부로, 해당 영화의 스페셜 OST 앨범과 관련된 검색어로 보인다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="germinie germinie는 spotify 등에서 활동하는 인디 아티스트로 'too good at this', 'stay right here' 등이 수록된 'half alive' 등의 앨범을 발매했다.">
+        <td>germinie</td>
+        <td class="num">239</td>
+        <td class="num">0.00%</td>
+        <td>아티스트</td>
+        <td class="desc">germinie는 Spotify 등에서 활동하는 인디 아티스트로 'Too Good At This', 'Stay Right Here' 등이 수록된 'Half Alive' 등의 앨범을 발매했다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="기타" data-response="대응 없음" data-search="맛뮤직 '맛뮤직(flavor music)'은 감성적인 한국 힙합·칠 트랙의 가사 영상을 올리는 유튜브 음악 채널로, 특정 아티스트나 단일 음원이 아닌 콘텐츠 채널명이다.">
+        <td>맛뮤직</td>
+        <td class="num">232</td>
+        <td class="num">1.29%</td>
+        <td>기타</td>
+        <td class="desc">'맛뮤직(FLAVOR MUSIC)'은 감성적인 한국 힙합·칠 트랙의 가사 영상을 올리는 유튜브 음악 채널로, 특정 아티스트나 단일 음원이 아닌 콘텐츠 채널명이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="기타" data-response="대응 없음" data-search="ㅈ 의미 파악이 어려운 단문/입력 오류로 추정">
+        <td>ㅈ</td>
+        <td class="num">218</td>
+        <td class="num">3.21%</td>
+        <td>기타</td>
+        <td class="desc">의미 파악이 어려운 단문/입력 오류로 추정</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="앱기능/서비스" data-response="대응 없음" data-search="캐시충전 멜론 캐시를 충전하는 기능으로, 충전된 캐시는 월 정기결제 및 음원 다운로드 등에 사용할 수 있다.">
+        <td>캐시충전</td>
+        <td class="num">211</td>
+        <td class="num">0.00%</td>
+        <td>앱기능/서비스</td>
+        <td class="desc">멜론 캐시를 충전하는 기능으로, 충전된 캐시는 월 정기결제 및 음원 다운로드 등에 사용할 수 있다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="헬로핑 헬로핑(helloping)은 2025년 데뷔한 ai 기반 인디 아티스트로, '인생 뭐 있나' 등의 곡을 발매했다.">
+        <td>헬로핑</td>
+        <td class="num">202</td>
+        <td class="num">2.48%</td>
+        <td>아티스트</td>
+        <td class="desc">헬로핑(HELLOPING)은 2025년 데뷔한 AI 기반 인디 아티스트로, '인생 뭐 있나' 등의 곡을 발매했다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="음원" data-response="대응 없음" data-search="summer session 여러 아티스트가 발매한 'summer session'이라는 제목의 음반/트랙(예: amy lee &amp; the loco project band, dan desnoyers 등)이 다수 존재하며, 여름 시즌 컴필레이션 음원으로 흔히 쓰이는 제목이다.">
+        <td>summer session</td>
+        <td class="num">202</td>
+        <td class="num">2.48%</td>
+        <td>음원</td>
+        <td class="desc">여러 아티스트가 발매한 'Summer Session'이라는 제목의 음반/트랙(예: Amy Lee &amp; The Loco Project Band, Dan Desnoyers 등)이 다수 존재하며, 여름 시즌 컴필레이션 음원으로 흔히 쓰이는 제목이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="앱기능/서비스" data-response="대응 없음" data-search="이용권 멜론 앱에서 음악 감상을 위한 정기 구독/결제 상품을 가리키는 '이용권' 메뉴 용어이다.">
+        <td>이용권</td>
+        <td class="num">200</td>
+        <td class="num">0.50%</td>
+        <td>앱기능/서비스</td>
+        <td class="desc">멜론 앱에서 음악 감상을 위한 정기 구독/결제 상품을 가리키는 '이용권' 메뉴 용어이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="음원" data-response="동의어 등록" data-search="비행정 일본 밴드 king gnu가 2019년 발매한 디지털 싱글 '飛行艇(비행정, hikoutei)'을 가리키는 것으로 보인다.">
+        <td>비행정</td>
+        <td class="num">190</td>
+        <td class="num">1.05%</td>
+        <td>음원</td>
+        <td class="desc">일본 밴드 King Gnu가 2019년 발매한 디지털 싱글 '飛行艇(비행정, Hikoutei)'을 가리키는 것으로 보인다.</td>
+        <td class="response-badge" data-response-badge="동의어 등록">동의어 등록</td>
+        <td>대표어: 'Hikoutei' / 동의어: '비행정' — <a href="https://www.melon.com/song/detail.htm?songId=31978968" target="_blank" rel="noopener">콘텐츠 보기</a></td>
+      </tr>
+<tr data-category="음원" data-response="대응 없음" data-search="행복이 그거래요 가수 미즈키의 곡으로, '좋아하는 사람이랑 낭비한 시간들' 가사가 sns(틱톡/인스타그램)에서 밈처럼 유행하며 검색된 것으로 보인다.">
+        <td>행복이 그거래요</td>
+        <td class="num">189</td>
+        <td class="num">0.00%</td>
+        <td>음원</td>
+        <td class="desc">가수 미즈키의 곡으로, '좋아하는 사람이랑 낭비한 시간들' 가사가 SNS(틱톡/인스타그램)에서 밈처럼 유행하며 검색된 것으로 보인다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="기타" data-response="대응 없음" data-search="안녕 겜작 '겜작'(게임 제작)과 관련된 표현으로 추정되나 음악과 연관된 명확한 대상을 찾지 못해 의미 파악이 어렵다.">
+        <td>안녕 겜작</td>
+        <td class="num">188</td>
+        <td class="num">0.00%</td>
+        <td>기타</td>
+        <td class="desc">'겜작'(게임 제작)과 관련된 표현으로 추정되나 음악과 연관된 명확한 대상을 찾지 못해 의미 파악이 어렵다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="anoufie spotify 기준 월 9만명 이상의 청취자를 보유한 아티스트로, 'noir' 등의 곡을 발매한 뮤지션이다.">
+        <td>anoufie</td>
+        <td class="num">186</td>
+        <td class="num">0.00%</td>
+        <td>아티스트</td>
+        <td class="desc">Spotify 기준 월 9만명 이상의 청취자를 보유한 아티스트로, 'Noir' 등의 곡을 발매한 뮤지션이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="앱기능/서비스" data-response="대응 없음" data-search="투표 멜론 앱 내 음악방송 순위 등에 참여하는 '투표' 기능/메뉴를 가리킨다.">
+        <td>투표</td>
+        <td class="num">183</td>
+        <td class="num">1.64%</td>
+        <td>앱기능/서비스</td>
+        <td class="desc">멜론 앱 내 음악방송 순위 등에 참여하는 '투표' 기능/메뉴를 가리킨다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="외톨이에게 외톨이">
+        <td>외톨이에게</td>
+        <td class="num">183</td>
+        <td class="num">1.64%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 외톨이</td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="rover is 벅스뮤직에 등록된 아티스트명 'rover is'로 확인되며, 해당 아티스트를 찾기 위한 검색으로 보인다.">
+        <td>rover is</td>
+        <td class="num">183</td>
+        <td class="num">2.19%</td>
+        <td>아티스트</td>
+        <td class="desc">벅스뮤직에 등록된 아티스트명 'ROVER is'로 확인되며, 해당 아티스트를 찾기 위한 검색으로 보인다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="음원" data-response="대응 없음" data-search="정승환 입춘 가수 정승환이 한로로의 원곡 '입춘'을 커버한 무대/음원을 가리키며, sns에서 화제가 되며 검색된 것으로 보인다.">
+        <td>정승환 입춘</td>
+        <td class="num">176</td>
+        <td class="num">2.84%</td>
+        <td>음원</td>
+        <td class="desc">가수 정승환이 한로로의 원곡 '입춘'을 커버한 무대/음원을 가리키며, SNS에서 화제가 되며 검색된 것으로 보인다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>원본 아티스트: <a href="https://www.melon.com/artist/timeline.htm?artistId=3080810" target="_blank" rel="noopener">한로로</a><br>원본 곡: <a href="https://www.melon.com/song/detail.htm?songId=34753369" target="_blank" rel="noopener">입춘</a></td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="serinwave 유튜브뮤직 기준 월 50만명 이상의 청취자를 보유한 아티스트로, 'pastel lights' 등 다수의 음반을 발매했다.">
+        <td>serinwave</td>
+        <td class="num">174</td>
+        <td class="num">0.00%</td>
+        <td>아티스트</td>
+        <td class="desc">유튜브뮤직 기준 월 50만명 이상의 청취자를 보유한 아티스트로, 'Pastel Lights' 등 다수의 음반을 발매했다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="빅벵 빅뱅">
+        <td>빅벵</td>
+        <td class="num">173</td>
+        <td class="num">0.00%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 빅뱅</td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="jerome timu spotify 기준 월 4만명 이상의 청취자를 보유한 아티스트로, 'always will' 등의 곡을 발매한 뮤지션이다.">
+        <td>jerome timu</td>
+        <td class="num">170</td>
+        <td class="num">0.00%</td>
+        <td>아티스트</td>
+        <td class="desc">Spotify 기준 월 4만명 이상의 청취자를 보유한 아티스트로, 'Always Will' 등의 곡을 발매한 뮤지션이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="박뱅 빅뱅">
+        <td>박뱅</td>
+        <td class="num">170</td>
+        <td class="num">2.94%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 빅뱅</td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="빅쟁 빅뱅">
+        <td>빅쟁</td>
+        <td class="num">168</td>
+        <td class="num">0.00%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 빅뱅</td>
+      </tr>
+<tr data-category="음원" data-response="대응 없음" data-search="꺼져 제발 '꺼져 제발'이라는 가사/제목이 포함된 곡(캔의 '꺼져!', 소울플로우의 '제발 꺼져줄래' 등)을 찾는 검색으로 보이나, 정확히 일치하는 단일 곡은 확인되지 않음.">
+        <td>꺼져 제발</td>
+        <td class="num">166</td>
+        <td class="num">3.01%</td>
+        <td>음원</td>
+        <td class="desc">'꺼져 제발'이라는 가사/제목이 포함된 곡(캔의 '꺼져!', 소울플로우의 '제발 꺼져줄래' 등)을 찾는 검색으로 보이나, 정확히 일치하는 단일 곡은 확인되지 않음.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="기타" data-response="대응 없음" data-search="이 의미 파악이 어려운 단문/입력 오류로 추정">
+        <td>이</td>
+        <td class="num">165</td>
+        <td class="num">4.24%</td>
+        <td>기타</td>
+        <td class="desc">의미 파악이 어려운 단문/입력 오류로 추정</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="음원" data-response="대응 없음" data-search="사람이지쳤잖아 가수 223.32가 2026년 발매한 싱글 '사람이 지쳤잖아'를 가리키는 것으로 확인됨.">
+        <td>사람이지쳤잖아</td>
+        <td class="num">164</td>
+        <td class="num">3.05%</td>
+        <td>음원</td>
+        <td class="desc">가수 223.32가 2026년 발매한 싱글 '사람이 지쳤잖아'를 가리키는 것으로 확인됨.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="지식" data-response="대응 없음" data-search="치하 '치하(끝나지 않는 여름)'는 2026년 공개된 중국 드라마 제목이며, 동일 이름의 음악 아티스트는 확인되지 않음.">
+        <td>치하</td>
+        <td class="num">161</td>
+        <td class="num">0.62%</td>
+        <td>지식</td>
+        <td class="desc">'치하(끝나지 않는 여름)'는 2026년 공개된 중국 드라마 제목이며, 동일 이름의 음악 아티스트는 확인되지 않음.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="볼빨간 볼빨간사춘기">
+        <td>볼빨간</td>
+        <td class="num">160</td>
+        <td class="num">4.38%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 볼빨간사춘기</td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="니썬뮤직 '니썬뮤직(nisun music)'은 spotify, apple music 등에 앨범을 발매한 인디 뮤지션/음악 프로젝트명임.">
+        <td>니썬뮤직</td>
+        <td class="num">156</td>
+        <td class="num">4.49%</td>
+        <td>아티스트</td>
+        <td class="desc">'니썬뮤직(Nisun Music)'은 Spotify, Apple Music 등에 앨범을 발매한 인디 뮤지션/음악 프로젝트명임.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="허걱 허각">
+        <td>허걱</td>
+        <td class="num">154</td>
+        <td class="num">3.90%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 허각</td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="lovixx 'lovixx'는 spotify 기준 월간 청취자 약 340만 명을 보유한 힙합/랩 아티스트임.">
+        <td>lovixx</td>
+        <td class="num">150</td>
+        <td class="num">0.00%</td>
+        <td>아티스트</td>
+        <td class="desc">'LOVIXX'는 Spotify 기준 월간 청취자 약 340만 명을 보유한 힙합/랩 아티스트임.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="음원" data-response="대응 없음" data-search="장한별 인생이란 '인생이란'은 윤시내가 부른 유명 트로트 곡(김종환 작사·작곡)이며, 트로트 가수 장한별이 이를 커버해 부른 무대와 관련된 검색으로 추정됨.">
+        <td>장한별 인생이란</td>
+        <td class="num">147</td>
+        <td class="num">0.00%</td>
+        <td>음원</td>
+        <td class="desc">'인생이란'은 윤시내가 부른 유명 트로트 곡(김종환 작사·작곡)이며, 트로트 가수 장한별이 이를 커버해 부른 무대와 관련된 검색으로 추정됨.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>원본 아티스트: <a href="https://www.melon.com/artist/timeline.htm?artistId=1012" target="_blank" rel="noopener">윤시내</a><br>원본 곡: <a href="https://www.melon.com/song/detail.htm?songId=7942525" target="_blank" rel="noopener">인생이란</a></td>
+      </tr>
+<tr data-category="기타" data-response="대응 없음" data-search="삼일후 관련된 곡이나 작품이 명확히 확인되지 않는 검색어로, 의미 파악이 어려움.">
+        <td>삼일후</td>
+        <td class="num">146</td>
+        <td class="num">0.00%</td>
+        <td>기타</td>
+        <td class="desc">관련된 곡이나 작품이 명확히 확인되지 않는 검색어로, 의미 파악이 어려움.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="국민딴따라 '국민딴따라'는 고속도로 휴게소 트로트 메들리 음반으로 유명한 가수 정희라의 별명임.">
+        <td>국민딴따라</td>
+        <td class="num">145</td>
+        <td class="num">1.38%</td>
+        <td>아티스트</td>
+        <td class="desc">'국민딴따라'는 고속도로 휴게소 트로트 메들리 음반으로 유명한 가수 정희라의 별명임.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>원본 아티스트: <a href="https://www.melon.com/artist/timeline.htm?artistId=161308" target="_blank" rel="noopener">정희라</a></td>
+      </tr>
+<tr data-category="앱기능/서비스" data-response="대응 없음" data-search="방금 그 노래 멜론의 '방금그곡' 기능을 가리키는 표현으로, tv·라디오에서 방금 나온 곡을 실시간으로 찾아주는 서비스임.">
+        <td>방금 그 노래</td>
+        <td class="num">143</td>
+        <td class="num">0.70%</td>
+        <td>앱기능/서비스</td>
+        <td class="desc">멜론의 '방금그곡' 기능을 가리키는 표현으로, TV·라디오에서 방금 나온 곡을 실시간으로 찾아주는 서비스임.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="음원" data-response="대응 없음" data-search="인생은 서툰 여행이래 가수 helloping이 2026년 발매한 곡 '인생은 서툰 여행이래'를 가리킴.">
+        <td>인생은 서툰 여행이래</td>
+        <td class="num">141</td>
+        <td class="num">0.00%</td>
+        <td>음원</td>
+        <td class="desc">가수 HELLOPING이 2026년 발매한 곡 '인생은 서툰 여행이래'를 가리킴.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="음원" data-response="대응 없음" data-search="꺼져제발 '꺼져 제발'이라는 가사/제목이 포함된 곡(캔의 '꺼져!', 소울플로우의 '제발 꺼져줄래' 등)을 찾는 검색으로 보이나, 정확히 일치하는 단일 곡은 확인되지 않음.">
+        <td>꺼져제발</td>
+        <td class="num">138</td>
+        <td class="num">1.45%</td>
+        <td>음원</td>
+        <td class="desc">'꺼져 제발'이라는 가사/제목이 포함된 곡(캔의 '꺼져!', 소울플로우의 '제발 꺼져줄래' 등)을 찾는 검색으로 보이나, 정확히 일치하는 단일 곡은 확인되지 않음.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="음원" data-response="대응 없음" data-search="파자마파티즈 일본 캐릭터 콘텐츠 '치이카와(먼작귀)'에 등장하는 '파자마 파티즈의 노래'를 가리키는 것으로 추정됨.">
+        <td>파자마파티즈</td>
+        <td class="num">136</td>
+        <td class="num">0.00%</td>
+        <td>음원</td>
+        <td class="desc">일본 캐릭터 콘텐츠 '치이카와(먼작귀)'에 등장하는 '파자마 파티즈의 노래'를 가리키는 것으로 추정됨.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="앱기능/서비스" data-response="대응 없음" data-search="이용권해지 멜론 이용권(구독) 해지 메뉴를 가리키는 앱 서비스 관련 검색어이다.">
+        <td>이용권해지</td>
+        <td class="num">136</td>
+        <td class="num">0.00%</td>
+        <td>앱기능/서비스</td>
+        <td class="desc">멜론 이용권(구독) 해지 메뉴를 가리키는 앱 서비스 관련 검색어이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="기타" data-response="대응 없음" data-search=", 쉼표 기호만 입력된 것으로 의미를 특정할 수 없는 입력이다.">
+        <td>,</td>
+        <td class="num">136</td>
+        <td class="num">2.94%</td>
+        <td>기타</td>
+        <td class="desc">쉼표 기호만 입력된 것으로 의미를 특정할 수 없는 입력이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="기타" data-response="대응 없음" data-search="8월의여름 특정 곡·앨범·아티스트와 명확히 일치하는 정보를 찾지 못했으며, 계절감을 담은 문구로 추정된다.">
+        <td>8월의여름</td>
+        <td class="num">136</td>
+        <td class="num">3.68%</td>
+        <td>기타</td>
+        <td class="desc">특정 곡·앨범·아티스트와 명확히 일치하는 정보를 찾지 못했으며, 계절감을 담은 문구로 추정된다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="기타" data-response="대응 없음" data-search="ㄷ 의미 파악이 어려운 단문/입력 오류로 추정">
+        <td>ㄷ</td>
+        <td class="num">134</td>
+        <td class="num">2.24%</td>
+        <td>기타</td>
+        <td class="desc">의미 파악이 어려운 단문/입력 오류로 추정</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="paul velchev paul velchev는 트랩/피즈 계열 비트 음악을 발표하는 뮤지션으로, spotify 등 스트리밍 플랫폼에서 활동 중인 아티스트이다.">
+        <td>paul velchev</td>
+        <td class="num">130</td>
+        <td class="num">0.00%</td>
+        <td>아티스트</td>
+        <td class="desc">Paul Velchev는 트랩/피즈 계열 비트 음악을 발표하는 뮤지션으로, Spotify 등 스트리밍 플랫폼에서 활동 중인 아티스트이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="음원" data-response="대응 없음" data-search="서핑보이 레드벨벳이 2026년 8월 발매한 여름 댄스곡 'surfin' boy(서핑보이)'를 가리킨다.">
+        <td>서핑보이</td>
+        <td class="num">130</td>
+        <td class="num">1.54%</td>
+        <td>음원</td>
+        <td class="desc">레드벨벳이 2026년 8월 발매한 여름 댄스곡 'Surfin' Boy(서핑보이)'를 가리킨다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>원본 아티스트: <a href="https://www.melon.com/artist/timeline.htm?artistId=780066" target="_blank" rel="noopener">Red Velvet (레드벨벳)</a></td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="붓꽃잎편지 붓꽃잎 편지 (홍지윤)">
+        <td>붓꽃잎편지</td>
+        <td class="num">129</td>
+        <td class="num">0.00%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 붓꽃잎 편지 (홍지윤)</td>
+      </tr>
+<tr data-category="앱기능/서비스" data-response="대응 없음" data-search="쿠폰 멜론 앱 내 쿠폰 등록/사용 메뉴를 가리키는 서비스 관련 검색어이다.">
+        <td>쿠폰</td>
+        <td class="num">129</td>
+        <td class="num">0.00%</td>
+        <td>앱기능/서비스</td>
+        <td class="desc">멜론 앱 내 쿠폰 등록/사용 메뉴를 가리키는 서비스 관련 검색어이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="기타" data-response="대응 없음" data-search="l 알파벳 한 글자만 입력되어 의미를 특정하기 어려운 검색어이다.">
+        <td>l</td>
+        <td class="num">129</td>
+        <td class="num">3.88%</td>
+        <td>기타</td>
+        <td class="desc">알파벳 한 글자만 입력되어 의미를 특정하기 어려운 검색어이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="리샌느 리센느(rescene)">
+        <td>리샌느</td>
+        <td class="num">127</td>
+        <td class="num">0.79%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 리센느(RESCENE)</td>
+      </tr>
+<tr data-category="지식" data-response="대응 없음" data-search="헬스키친 싱어송라이터 앨리샤 키스의 히트곡들을 바탕으로 만든 브로드웨이 뮤지컬 '헬스키친(hell's kitchen)'을 가리키며, 국내에서도 라이선스 공연이 진행되었다.">
+        <td>헬스키친</td>
+        <td class="num">126</td>
+        <td class="num">3.97%</td>
+        <td>지식</td>
+        <td class="desc">싱어송라이터 앨리샤 키스의 히트곡들을 바탕으로 만든 브로드웨이 뮤지컬 '헬스키친(Hell's Kitchen)'을 가리키며, 국내에서도 라이선스 공연이 진행되었다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>원본 아티스트: <a href="https://www.melon.com/artist/timeline.htm?artistId=5917" target="_blank" rel="noopener">Alicia Keys</a></td>
+      </tr>
+<tr data-category="기타" data-response="대응 없음" data-search="ㅁ 의미 파악이 어려운 단문/입력 오류로 추정">
+        <td>ㅁ</td>
+        <td class="num">125</td>
+        <td class="num">2.40%</td>
+        <td>기타</td>
+        <td class="desc">의미 파악이 어려운 단문/입력 오류로 추정</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="왜내가챙피해 왜 내가 창피해">
+        <td>왜내가챙피해</td>
+        <td class="num">123</td>
+        <td class="num">0.00%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 왜 내가 창피해</td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="파데코 파테코(pateko)">
+        <td>파데코</td>
+        <td class="num">123</td>
+        <td class="num">0.81%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 파테코(PATEKO)</td>
+      </tr>
+<tr data-category="기타" data-response="대응 없음" data-search="ㅣ 의미 파악이 어려운 단문/입력 오류로 추정">
+        <td>ㅣ</td>
+        <td class="num">123</td>
+        <td class="num">2.44%</td>
+        <td>기타</td>
+        <td class="desc">의미 파악이 어려운 단문/입력 오류로 추정</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="장한별인생이란 장한별은 2026년 mbn 오디션 프로그램 '무명전설'에서 톱3에 오르며 주목받은 트로트 가수로, 검색어는 그녀의 삶을 다룬 인터뷰 기사 제목의 일부로 추정된다.">
+        <td>장한별인생이란</td>
+        <td class="num">121</td>
+        <td class="num">0.00%</td>
+        <td>아티스트</td>
+        <td class="desc">장한별은 2026년 MBN 오디션 프로그램 '무명전설'에서 톱3에 오르며 주목받은 트로트 가수로, 검색어는 그녀의 삶을 다룬 인터뷰 기사 제목의 일부로 추정된다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>원본 아티스트: <a href="https://www.melon.com/artist/timeline.htm?artistId=672869" target="_blank" rel="noopener">장한별</a></td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="빗뱅 빅뱅(bigbang)">
+        <td>빗뱅</td>
+        <td class="num">120</td>
+        <td class="num">0.00%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 빅뱅(BIGBANG)</td>
+      </tr>
+<tr data-category="지식" data-response="대응 없음" data-search="국어 별동대 국어별동대는 유튜버 백앤아×고고프렌즈가 만든 세종대왕 테마의 국어 학습 동화·웹툰 콘텐츠로, 관련 유튜브 동요는 있으나 멜론에 유통되는 정식 음원은 아니다.">
+        <td>국어 별동대</td>
+        <td class="num">119</td>
+        <td class="num">0.00%</td>
+        <td>지식</td>
+        <td class="desc">국어별동대는 유튜버 백앤아×고고프렌즈가 만든 세종대왕 테마의 국어 학습 동화·웹툰 콘텐츠로, 관련 유튜브 동요는 있으나 멜론에 유통되는 정식 음원은 아니다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="myofeel myofeel은 shazam·유튜브에 프로필이 있는 인디/일렉트로닉 계열의 무명 아티스트로, 2026년 6월 'good day energy'라는 곡을 발표했다.">
+        <td>myofeel</td>
+        <td class="num">118</td>
+        <td class="num">0.00%</td>
+        <td>아티스트</td>
+        <td class="desc">myofeel은 Shazam·유튜브에 프로필이 있는 인디/일렉트로닉 계열의 무명 아티스트로, 2026년 6월 'Good Day Energy'라는 곡을 발표했다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="음원" data-response="동의어 등록" data-search="cherry flavoured cherry flavoured는 미국 밴드 the neighbourhood가 2020년 앨범 'chip chrome &amp; the mono-tones'에서 발표한 곡이다.">
+        <td>cherry flavoured</td>
+        <td class="num">118</td>
+        <td class="num">1.69%</td>
+        <td>음원</td>
+        <td class="desc">Cherry Flavoured는 미국 밴드 The Neighbourhood가 2020년 앨범 'Chip Chrome &amp; The Mono-Tones'에서 발표한 곡이다.</td>
+        <td class="response-badge" data-response-badge="동의어 등록">동의어 등록</td>
+        <td>대표어: 'Cherry Flavoured' / 동의어: 'cherry flavoured' — <a href="https://www.melon.com/song/detail.htm?songId=32827312" target="_blank" rel="noopener">콘텐츠 보기</a></td>
+      </tr>
+<tr data-category="음원" data-response="대응 없음" data-search="무엇이든 해낼당신에게 '무엇이든 해낼 당신에게'는 아티스트 jehoda가 2026년 4월 발매한 싱글 곡 제목으로, 검색어에 띄어쓰기가 붙어 실제 곡을 찾지 못한 것으로 보인다.">
+        <td>무엇이든 해낼당신에게</td>
+        <td class="num">117</td>
+        <td class="num">0.00%</td>
+        <td>음원</td>
+        <td class="desc">'무엇이든 해낼 당신에게'는 아티스트 jehoda가 2026년 4월 발매한 싱글 곡 제목으로, 검색어에 띄어쓰기가 붙어 실제 곡을 찾지 못한 것으로 보인다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>원본 아티스트: <a href="https://www.melon.com/artist/timeline.htm?artistId=4409054" target="_blank" rel="noopener">jehoda</a></td>
+      </tr>
+<tr data-category="음원" data-response="대응 없음" data-search="oia at sunset oia at sunset은 cielo ardent의 앨범 'santorini sunset (mediterranean lounge house)'에 수록된 라운지하우스 장르의 곡이다.">
+        <td>oia at sunset</td>
+        <td class="num">116</td>
+        <td class="num">0.00%</td>
+        <td>음원</td>
+        <td class="desc">Oia at Sunset은 Cielo Ardent의 앨범 'Santorini Sunset (Mediterranean Lounge House)'에 수록된 라운지하우스 장르의 곡이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="아이릿 아일릿(illit)">
+        <td>아이릿</td>
+        <td class="num">115</td>
+        <td class="num">3.48%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 아일릿(ILLIT)</td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="래몬탱 레몬탱(lemon tang) - 하츠투하츠">
+        <td>래몬탱</td>
+        <td class="num">112</td>
+        <td class="num">0.00%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 레몬탱(Lemon Tang) - 하츠투하츠</td>
+      </tr>
+<tr data-category="밈/트렌드" data-response="대응 없음" data-search="갬작 갬작은 뚜렷한 정의를 찾기 어려운 신조어로, '갬성'(감성의 변형)과 '작(품)'이 결합된 팬덤 은어로 추정되나 특정 곡이나 아티스트를 가리키는지는 불분명하다.">
+        <td>갬작</td>
+        <td class="num">112</td>
+        <td class="num">4.46%</td>
+        <td>밈/트렌드</td>
+        <td class="desc">갬작은 뚜렷한 정의를 찾기 어려운 신조어로, '갬성'(감성의 변형)과 '작(품)'이 결합된 팬덤 은어로 추정되나 특정 곡이나 아티스트를 가리키는지는 불분명하다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="지식" data-response="대응 없음" data-search="쿠팡 쿠팡은 한국의 대형 이커머스·ott 기업으로, 음악 아티스트나 곡명이 아닌 쇼핑·서비스 관련 검색으로 유입된 것으로 보인다.">
+        <td>쿠팡</td>
+        <td class="num">111</td>
+        <td class="num">1.80%</td>
+        <td>지식</td>
+        <td class="desc">쿠팡은 한국의 대형 이커머스·OTT 기업으로, 음악 아티스트나 곡명이 아닌 쇼핑·서비스 관련 검색으로 유입된 것으로 보인다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="차쿤에네스 차쿤&amp;에네스는 2000년대 인터넷에서 화제가 된 곡 '눈물'을 발표한 인터넷 가수 듀오이다.">
+        <td>차쿤에네스</td>
+        <td class="num">110</td>
+        <td class="num">0.00%</td>
+        <td>아티스트</td>
+        <td class="desc">차쿤&amp;에네스는 2000년대 인터넷에서 화제가 된 곡 '눈물'을 발표한 인터넷 가수 듀오이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="빅백 빅뱅(bigbang)">
+        <td>빅백</td>
+        <td class="num">109</td>
+        <td class="num">0.00%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 빅뱅(BIGBANG)</td>
+      </tr>
+<tr data-category="음원" data-response="대응 없음" data-search="meet my girls 'meet my grls'는 하이브 산하 신인 걸그룹 tuide가 2026년 8월 발매한 데뷔 ep 'tune &amp; play' 타이틀곡 'grls'의 후크 문구이다.">
+        <td>meet my girls</td>
+        <td class="num">109</td>
+        <td class="num">0.00%</td>
+        <td>음원</td>
+        <td class="desc">'Meet my GRLS'는 하이브 산하 신인 걸그룹 TUIDE가 2026년 8월 발매한 데뷔 EP 'TUNE &amp; PLAY' 타이틀곡 'GRLS'의 후크 문구이다.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>원본 아티스트: <a href="https://www.melon.com/artist/timeline.htm?artistId=5161926" target="_blank" rel="noopener">TUIDE (튜이드)</a><br>원본 곡: <a href="https://www.melon.com/song/detail.htm?songId=602872574" target="_blank" rel="noopener">GRLS</a></td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="윈위 윈윈(winwin)">
+        <td>윈위</td>
+        <td class="num">109</td>
+        <td class="num">0.00%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 윈윈(WinWin)</td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="차라리가 차라리">
+        <td>차라리가</td>
+        <td class="num">109</td>
+        <td class="num">3.67%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 차라리</td>
+      </tr>
+<tr data-category="기타" data-response="대응 없음" data-search="힙썬 음악 관련 검색어로 추정되나 이에 해당하는 아티스트, 곡, 채널 등을 확인할 수 없었으며 의미가 불분명함.">
+        <td>힙썬</td>
+        <td class="num">108</td>
+        <td class="num">0.93%</td>
+        <td>기타</td>
+        <td class="desc">음악 관련 검색어로 추정되나 이에 해당하는 아티스트, 곡, 채널 등을 확인할 수 없었으며 의미가 불분명함.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="기타" data-response="대응 없음" data-search="녹는 가슴 '가슴이 녹는다'는 감성적 표현으로 보이나, 이 제목과 정확히 일치하는 곡이나 아티스트를 찾을 수 없었음.">
+        <td>녹는 가슴</td>
+        <td class="num">107</td>
+        <td class="num">0.00%</td>
+        <td>기타</td>
+        <td class="desc">'가슴이 녹는다'는 감성적 표현으로 보이나, 이 제목과 정확히 일치하는 곡이나 아티스트를 찾을 수 없었음.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="ej 영문 이니셜 'ej'로, 국내 싱어송라이터 이젤(ejel) 또는 넷플릭스 '케이팝 데몬 헌터스'로 화제가 된 싱어송라이터 이재(ejae) 등 동명의 가수를 가리키는 것으로 추정됨.">
+        <td>ej</td>
+        <td class="num">106</td>
+        <td class="num">0.94%</td>
+        <td>아티스트</td>
+        <td class="desc">영문 이니셜 'EJ'로, 국내 싱어송라이터 이젤(EJel) 또는 넷플릭스 '케이팝 데몬 헌터스'로 화제가 된 싱어송라이터 이재(EJAE) 등 동명의 가수를 가리키는 것으로 추정됨.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="이창민바보같지만 2am 출신으로 최근 트로트 가수로 전향해 '무명전설'에 출연한 이창민의 이름과 임영웅의 곡 '바보같지만'이 띄어쓰기 없이 붙어 검색된 것으로 보임.">
+        <td>이창민바보같지만</td>
+        <td class="num">104</td>
+        <td class="num">0.00%</td>
+        <td>아티스트</td>
+        <td class="desc">2AM 출신으로 최근 트로트 가수로 전향해 '무명전설'에 출연한 이창민의 이름과 임영웅의 곡 '바보같지만'이 띄어쓰기 없이 붙어 검색된 것으로 보임.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>원본 아티스트: <a href="https://www.melon.com/artist/timeline.htm?artistId=443620" target="_blank" rel="noopener">이창민</a><br>원본 곡: <a href="https://www.melon.com/song/detail.htm?songId=33423500" target="_blank" rel="noopener">바보같지만</a></td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="보넷도 보이그룹 보이넥스트도어(boynextdoor)를 가리키는 팬덤 줄임말로, 멤버 이한과 함께 언급되는 경우가 많음.">
+        <td>보넷도</td>
+        <td class="num">103</td>
+        <td class="num">0.97%</td>
+        <td>아티스트</td>
+        <td class="desc">보이그룹 보이넥스트도어(BOYNEXTDOOR)를 가리키는 팬덤 줄임말로, 멤버 이한과 함께 언급되는 경우가 많음.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="음원" data-response="대응 없음" data-search="1+1 래퍼 애쉬아일랜드(ash island)가 2025년 발매한 앨범 'voice memo' 수록곡 '1+1'을 가리키는 것으로 보이며, 멜론의 '1+1' 이용권/쿠폰 프로모션을 의미할 가능성도 있음.">
+        <td>1+1</td>
+        <td class="num">102</td>
+        <td class="num">4.90%</td>
+        <td>음원</td>
+        <td class="desc">래퍼 애쉬아일랜드(ASH ISLAND)가 2025년 발매한 앨범 'Voice Memo' 수록곡 '1+1'을 가리키는 것으로 보이며, 멜론의 '1+1' 이용권/쿠폰 프로모션을 의미할 가능성도 있음.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>원본 곡: <a href="https://www.melon.com/song/detail.htm?songId=38644517" target="_blank" rel="noopener">1+1</a></td>
+      </tr>
+<tr data-category="음원" data-response="대응 없음" data-search="ヤラララ 보컬로이드/utau 카사네 테토(重音テト)가 피처링한 abm(anythingbecomemoe)의 곡 'ヤラララ(야라라라)'를 가리킴.">
+        <td>ヤラララ</td>
+        <td class="num">101</td>
+        <td class="num">0.00%</td>
+        <td>음원</td>
+        <td class="desc">보컬로이드/UTAU 카사네 테토(重音テト)가 피처링한 ABM(AnythingBecomeMoe)의 곡 'ヤラララ(야라라라)'를 가리킴.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>원본 아티스트: <a href="https://www.melon.com/artist/timeline.htm?artistId=3479375" target="_blank" rel="noopener">Kasane Teto</a></td>
+      </tr>
+<tr data-category="음원" data-response="대응 없음" data-search="차쿤 에네스 2009년경 인터넷에서 화제였던 차쿤&amp;에네스의 자작곡 '눈물'을 가리키며, 차쿤은 이후 힙합 그룹 일렉트로보이즈 멤버로도 활동함.">
+        <td>차쿤 에네스</td>
+        <td class="num">101</td>
+        <td class="num">0.00%</td>
+        <td>음원</td>
+        <td class="desc">2009년경 인터넷에서 화제였던 차쿤&amp;에네스의 자작곡 '눈물'을 가리키며, 차쿤은 이후 힙합 그룹 일렉트로보이즈 멤버로도 활동함.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="기타" data-response="대응 없음" data-search="맞게살아온걸까 '제대로 살아온 걸까'라는 자기 성찰적 문구로 보이나, 특정 곡의 제목이나 가사로 명확히 확인되지 않음.">
+        <td>맞게살아온걸까</td>
+        <td class="num">101</td>
+        <td class="num">0.00%</td>
+        <td>기타</td>
+        <td class="desc">'제대로 살아온 걸까'라는 자기 성찰적 문구로 보이나, 특정 곡의 제목이나 가사로 명확히 확인되지 않음.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="아티스트" data-response="대응 없음" data-search="uyoung wave 로파이·감성 팝 음악을 발매하는 인디 아티스트 겸 채널 'uyoung wave'를 가리키며, 스포티파이·애플뮤직·유튜브 등에서 활동함.">
+        <td>uyoung wave</td>
+        <td class="num">100</td>
+        <td class="num">0.00%</td>
+        <td>아티스트</td>
+        <td class="desc">로파이·감성 팝 음악을 발매하는 인디 아티스트 겸 채널 'UYoung Wave'를 가리키며, 스포티파이·애플뮤직·유튜브 등에서 활동함.</td>
+        <td class="response-badge" data-response-badge="대응 없음">대응 없음</td>
+        <td>-</td>
+      </tr>
+<tr data-category="" data-response="오탈자 교정" data-search="빅뱉 빅뱅">
+        <td>빅뱉</td>
+        <td class="num">100</td>
+        <td class="num">0.00%</td>
+        <td>오탈자</td>
+        <td class="desc"></td>
+        <td class="response-badge" data-response-badge="오탈자 교정">오탈자 교정</td>
+        <td>교정: 빅뱅</td>
+      </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+<script>
+  (function () {
+    var categories = ["아티스트","음원","밈/트렌드","지식","앱기능/서비스","기타","오탈자"];
+    var responses = ["오탈자 교정","동의어 등록","대응 없음"];
+    var catSel = document.getElementById('categoryFilter');
+    categories.forEach(function (c) {
+      var opt = document.createElement('option');
+      opt.value = c; opt.textContent = c;
+      catSel.appendChild(opt);
+    });
+    var respSel = document.getElementById('responseFilter');
+    responses.forEach(function (r) {
+      var opt = document.createElement('option');
+      opt.value = r; opt.textContent = r;
+      respSel.appendChild(opt);
+    });
+
+    var searchBox = document.getElementById('searchBox');
+    var rows = Array.prototype.slice.call(document.querySelectorAll('#dataTable tbody tr'));
+
+    function applyFilters() {
+      var q = searchBox.value.trim().toLowerCase();
+      var cat = catSel.value;
+      var resp = respSel.value;
+      rows.forEach(function (tr) {
+        var matchesQ = !q || tr.getAttribute('data-search').indexOf(q) !== -1;
+        var matchesCat = !cat || tr.getAttribute('data-category') === cat || (cat === '오탈자' && tr.getAttribute('data-response') === '오탈자 교정');
+        var matchesResp = !resp || tr.getAttribute('data-response') === resp;
+        tr.style.display = (matchesQ && matchesCat && matchesResp) ? '' : 'none';
+      });
+    }
+    searchBox.addEventListener('input', applyFilters);
+    catSel.addEventListener('change', applyFilters);
+    respSel.addEventListener('change', applyFilters);
+  })();
+</script>
+</body>
+</html>

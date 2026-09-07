@@ -42,13 +42,14 @@ function parseArgs(argv) {
 }
 
 const CATEGORY_ORDER = ['아티스트', '음원', '밈/트렌드', '지식', '앱기능/서비스', '기타'];
-const RESPONSE_ORDER = ['오탈자 교정', '동의어/다국어 매핑', '관련 아티스트/곡 링크', '테마 키워드 제안', '대응 없음'];
+// 실질적으로 실패 키워드를 바로 고칠 수 있는 액션(오탈자 교정, 동의어 등록)만 별도 라벨을 받는다.
+// 관련 아티스트/곡 링크(원본 콘텐츠)나 테마 키워드는 검색어 자체를 고치는 액션이 아니므로
+// "대응 없음"으로 집계하되, 상세 컬럼에는 참고 정보로 남긴다(테마 키워드는 제외 — 아래 참조).
+const RESPONSE_ORDER = ['오탈자 교정', '동의어 등록', '대응 없음'];
 
 function classifyResponse(row) {
   if (row.is_typo === true) return '오탈자 교정';
-  if (row.suggestion_synonym_mapping) return '동의어/다국어 매핑';
-  if (row.suggestion_related_artist_id || row.suggestion_related_song_id) return '관련 아티스트/곡 링크';
-  if (row.suggestion_theme_keywords) return '테마 키워드 제안';
+  if (row.suggestion_synonym_mapping) return '동의어 등록';
   return '대응 없음';
 }
 
@@ -116,17 +117,24 @@ function main() {
   const fmtDate = (s) => (s && s.length === 8 ? `${s.slice(0, 4)}-${s.slice(4, 6)}-${s.slice(6, 8)}` : s);
 
   const categoryChart = barChartSvg(categoryData, PALETTE, { total: nonTypoRows.length, showPct: true, ariaLabel: '유형별 키워드 분포' });
-  const responseChart = barChartSvg(responseData, PALETTE, { total, showPct: true, ariaLabel: '대응 결과 분포' });
+  const responseChart = barChartSvg(responseData, PALETTE, { total, showPct: true, ariaLabel: '대응 제안 분포' });
 
   const tableRows = rows
     .map((r) => {
       const response = classifyResponse(r);
       const links = [];
       if (r.corrected_keyword) links.push(`교정: ${escapeHtml(r.corrected_keyword)}`);
-      if (r.suggestion_synonym_url) links.push(`<a href="${escapeHtml(r.suggestion_synonym_url)}" target="_blank" rel="noopener">동의어매핑 링크</a>`);
-      if (r.suggestion_related_artist_url) links.push(`<a href="${escapeHtml(r.suggestion_related_artist_url)}" target="_blank" rel="noopener">관련아티스트</a>`);
-      if (r.suggestion_related_song_url) links.push(`<a href="${escapeHtml(r.suggestion_related_song_url)}" target="_blank" rel="noopener">관련곡</a>`);
-      if (r.suggestion_theme_keywords) links.push(escapeHtml(r.suggestion_theme_keywords));
+      if (r.suggestion_synonym_mapping) {
+        links.push(`${escapeHtml(r.suggestion_synonym_mapping)} — <a href="${escapeHtml(r.suggestion_synonym_url)}" target="_blank" rel="noopener">콘텐츠 보기</a>`);
+      }
+      if (r.suggestion_related_artist_url) {
+        links.push(`원본 아티스트: <a href="${escapeHtml(r.suggestion_related_artist_url)}" target="_blank" rel="noopener">${escapeHtml(r.suggestion_related_artist_title || '보기')}</a>`);
+      }
+      if (r.suggestion_related_song_url) {
+        links.push(`원본 곡: <a href="${escapeHtml(r.suggestion_related_song_url)}" target="_blank" rel="noopener">${escapeHtml(r.suggestion_related_song_title || '보기')}</a>`);
+      }
+      // 테마 키워드 제안은 현재 검색 스펙상 실제 대응이 불가능해 대시보드에는 노출하지 않는다
+      // (기저 데이터의 suggestion_theme_keywords 값과 유형 분류 자체는 CSV/JSON에 그대로 유지됨).
 
       const searchText = [r.search_keyword, r.corrected_keyword, r.description].filter(Boolean).join(' ').toLowerCase();
       return `<tr data-category="${escapeHtml(r.category || '')}" data-response="${escapeHtml(response)}" data-search="${escapeHtml(searchText)}">
@@ -260,7 +268,7 @@ function main() {
     <div class="stat-tile"><div class="value">${total}</div><div class="label">분석 대상 키워드 (click_rate ≤ 0.05)</div></div>
     <div class="stat-tile"><div class="value">${typoRows.length}</div><div class="label">오탈자/절단 표기 (${((typoRows.length / total) * 100).toFixed(0)}%)</div></div>
     <div class="stat-tile"><div class="value">${nonTypoRows.length}</div><div class="label">오탈자 아님 (그라운딩 분류)</div></div>
-    <div class="stat-tile"><div class="value">${rows.filter((r) => classifyResponse(r) !== '대응 없음').length}</div><div class="label">제안/대응 생성됨</div></div>
+    <div class="stat-tile"><div class="value">${rows.filter((r) => classifyResponse(r) !== '대응 없음').length}</div><div class="label">대응 제안 생성됨</div></div>
   </div>
 
   <section>
@@ -269,9 +277,9 @@ function main() {
   </section>
 
   <section>
-    <h2>대응 결과 분포 (전체 ${total}건)</h2>
+    <h2>대응 제안 분포 (전체 ${total}건)</h2>
     <div class="chart-card">${responseChart}</div>
-    <p class="count-note">우선순위: 오탈자 교정 &gt; 동의어/다국어 매핑 &gt; 관련 아티스트·곡 링크 &gt; 테마 키워드 제안 &gt; 대응 없음 (한 키워드가 여러 제안을 동시에 받을 수 있어도 대표 1건으로 집계)</p>
+    <p class="count-note">우선순위: 오탈자 교정 &gt; 동의어 등록 &gt; 대응 없음. "동의어 등록"은 현재 검색어를 대표어(멜론 공식명)의 동의어로 바로 등록할 수 있는 경우만 해당하며, 원본 아티스트/곡 정보나 테마 키워드는 실제 대응 액션이 아니므로 대응 없음으로 집계됩니다(원본 아티스트/곡 링크는 상세에서 참고용으로 확인 가능).</p>
   </section>
 
   <section>
@@ -279,13 +287,13 @@ function main() {
     <div class="controls">
       <input type="text" id="searchBox" placeholder="키워드 또는 설명으로 검색...">
       <select id="categoryFilter"><option value="">전체 유형</option></select>
-      <select id="responseFilter"><option value="">전체 대응결과</option></select>
+      <select id="responseFilter"><option value="">전체 대응 제안</option></select>
     </div>
     <div class="table-wrap">
       <table id="dataTable">
         <thead>
           <tr>
-            <th>검색어</th><th>검색량</th><th>클릭률</th><th>유형</th><th>설명</th><th>대응결과</th><th>상세</th>
+            <th>검색어</th><th>검색량</th><th>클릭률</th><th>유형</th><th>설명</th><th>대응 제안</th><th>상세</th>
           </tr>
         </thead>
         <tbody>

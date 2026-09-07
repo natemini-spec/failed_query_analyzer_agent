@@ -71,9 +71,15 @@ async function findBestMatch(type, queries, opts = {}) {
     all.push(...list);
   }
 
-  let valid = all.filter(
-    (item) => (item.exact_score || 0) >= threshold.exactScore && (item.popularity_cnt || 0) >= threshold.popularityCnt
-  );
+  // 아티스트는 popularity_cnt가 threshold를 "초과"해야 동명이인 오매핑을 줄일 수 있다
+  // (예: "verano" 검색 시 의도하지 않은 동명 아티스트가 낮은 인기도로 걸리는 경우 방지).
+  let valid = all.filter((item) => {
+    const scoreOk = (item.exact_score || 0) >= threshold.exactScore;
+    const popOk = type === 'artist'
+      ? (item.popularity_cnt || 0) > threshold.popularityCnt
+      : (item.popularity_cnt || 0) >= threshold.popularityCnt;
+    return scoreOk && popOk;
+  });
 
   if (type === 'song' && opts.requireArtistMatch && opts.requireArtistMatch.length > 0) {
     valid = valid.filter((item) => artistPartiallyMatches(item, opts.requireArtistMatch));

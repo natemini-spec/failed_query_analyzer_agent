@@ -40,7 +40,10 @@ function parseArgs(argv) {
 function runStep(label, scriptName, scriptArgs, { partialOk = false } = {}) {
   console.log(`\n=== [pipeline] ${label} ===`);
   try {
-    execFileSync('node', [path.join(SCRIPTS_DIR, scriptName), ...scriptArgs], {
+    // process.execPath: 현재 실행 중인 node의 절대경로. cron처럼 PATH가 최소화된
+    // 환경에서는 바로 'node'만으로 spawn하면 ENOENT로 실패한다 (2026-08-10, 2026-08-24
+    // 자동 실행이 실제로 이 버그로 1단계에서 조용히 죽었던 것을 로그에서 확인했다).
+    execFileSync(process.execPath, [path.join(SCRIPTS_DIR, scriptName), ...scriptArgs], {
       stdio: 'inherit',
       cwd: ROOT,
     });

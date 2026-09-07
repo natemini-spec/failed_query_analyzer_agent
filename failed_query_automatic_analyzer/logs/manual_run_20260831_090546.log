@@ -1,0 +1,64 @@
+[pipeline] range=20260824_20260830 로 전체 파이프라인 시작
+
+=== [pipeline] 1/7 Redash CSV 다운로드 ===
+[failed-keywords] range=20260824~20260830 쿼리 실행 요청 중...
+[failed-keywords] job 50b092d6-b838-4eba-9d52-a27257ca259f 실행 중... (수 분 소요될 수 있음)
+[failed-keywords] 결과(id=5787902) CSV 다운로드 중...
+[failed-keywords] 저장 완료: /Users/marohan.min/failed_query_automatic_analyzer/data/failed_keywords_20260824_20260830.csv (1000행)
+
+=== [pipeline] 2/7 click_rate 필터링 ===
+[filter] 입력 파일: /Users/marohan.min/failed_query_automatic_analyzer/data/failed_keywords_20260824_20260830.csv
+[filter] click_rate <= 0.05 기준으로 필터링
+[filter] 전체 1000건 중 120건이 임계값 이하
+[filter] 저장 완료: /Users/marohan.min/failed_query_automatic_analyzer/data/low_click_rate_20260824_20260830.json
+
+=== [pipeline] 3/7 오탈자 판별 + 그라운딩 분류 ===
+[classify] 총 120건, 8개 배치(배치당 최대 15건)로 분류 시작
+[classify] 배치 1/8 (15건) 처리 중...
+[classify] 배치 1 실패: 응답에서 JSON 배열을 찾지 못했습니다: That background agent was a stray placeholder I accidentally launched — it's not relevant to this task and can be disregarded. The JSON array from my previous message is the complete, final answer to your keyword analysis request.
+[classify] 배치 2/8 (15건) 처리 중...
+[classify] 배치 3/8 (15건) 처리 중...
+[classify] 배치 4/8 (15건) 처리 중...
+[classify] 배치 5/8 (15건) 처리 중...
+[classify] 배치 6/8 (15건) 처리 중...
+[classify] 배치 7/8 (15건) 처리 중...
+[classify] 배치 8/8 (15건) 처리 중...
+[classify] 저장 완료: /Users/marohan.min/failed_query_automatic_analyzer/data/classification_raw_20260824_20260830.json (105/120건 성공)
+[classify] 실패한 배치 1개 — 상세: /Users/marohan.min/failed_query_automatic_analyzer/data/classification_failed_20260824_20260830.json
+[pipeline] 3/7 오탈자 판별 + 그라운딩 분류 단계에서 일부 실패가 있었지만 부분 결과로 계속 진행합니다.
+
+=== [pipeline] 4/7 분류 결과 병합 ===
+[merge] 경고: 분류 결과를 찾지 못한 키워드 15건: 효리수, 겜작, 뮤직웨이브, 무엇이든 해낼 당신에게, soonflow, 그냥 기다려보는거야, 잔울, 무엇이든 해낼, 국어별동대, 무엇이든, 이런 여유 너무 좋고, 빅밸, 사람이 지쳤잖아, ㅇ, 해지
+[merge] 총 120건 병합 완료
+[merge] 오탈자: 19건
+[merge] 유형별(오탈자 제외): {
+  "기타": 18,
+  "밈/트렌드": 8,
+  "음원": 20,
+  "앱기능/서비스": 9,
+  "아티스트": 24,
+  "지식": 7
+}
+[merge] 저장 완료: /Users/marohan.min/failed_query_automatic_analyzer/data/keyword_analysis_20260824_20260830.json
+[merge] 저장 완료: /Users/marohan.min/failed_query_automatic_analyzer/data/keyword_analysis_20260824_20260830.csv
+
+=== [pipeline] 5/7 엔티티 추출 ===
+[enrich] 오탈자 제외 86건 (단문/입력오류 6건은 LLM 호출 없이 제외), 6개 배치로 엔티티 추출 시작
+[enrich] 배치 1/6 (15건) 처리 중...
+[enrich] 배치 2/6 (15건) 처리 중...
+[enrich] 배치 3/6 (15건) 처리 중...
+[enrich] 배치 4/6 (15건) 처리 중...
+[enrich] 배치 5/6 (15건) 처리 중...
+[enrich] 배치 6/6 (5건) 처리 중...
+[enrich] 저장 완료: /Users/marohan.min/failed_query_automatic_analyzer/data/entity_extraction_20260824_20260830.json (86/86건, LLM 대상 80건 중 성공 80건)
+
+=== [pipeline] 6/7 콘텐츠 매핑 제안 생성 ===
+[suggest] 120건 중 오탈자 제외 대상에 대해 콘텐츠 매핑 생성 시작
+[suggest] 동의어 매핑 제안: 2건 / 관련 아티스트: 3건 / 관련 곡: 6건 / 테마 키워드(fallback): 70건
+[suggest] 저장 완료: /Users/marohan.min/failed_query_automatic_analyzer/data/content_mapping_20260824_20260830.json
+[suggest] 저장 완료: /Users/marohan.min/failed_query_automatic_analyzer/data/content_mapping_20260824_20260830.csv
+
+=== [pipeline] 7/7 대시보드 생성 ===
+[dashboard] 저장 완료: /Users/marohan.min/failed_query_automatic_analyzer/data/dashboard_20260824_20260830.html
+
+[pipeline] 완료: /Users/marohan.min/failed_query_automatic_analyzer/data/dashboard_20260824_20260830.html
