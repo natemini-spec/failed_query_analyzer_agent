@@ -1,0 +1,1336 @@
+[
+  {
+    "search_keyword": "ㅇ",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": []
+  },
+  {
+    "search_keyword": "ㄱ",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": []
+  },
+  {
+    "search_keyword": "ㅅ",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": []
+  },
+  {
+    "search_keyword": "ㅈ",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": []
+  },
+  {
+    "search_keyword": "이",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": []
+  },
+  {
+    "search_keyword": "ㄷ",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": []
+  },
+  {
+    "search_keyword": "ㅁ",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": []
+  },
+  {
+    "search_keyword": "ㅣ",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": []
+  },
+  {
+    "search_keyword": "효리수",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "신인 걸그룹 유닛",
+      "케이팝 신곡",
+      "챌린지 밈",
+      "소녀시대 유닛"
+    ]
+  },
+  {
+    "search_keyword": "겜작",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "게임 커뮤니티 용어",
+      "파밍 육성",
+      "게임 은어",
+      "RPG 스탯업"
+    ]
+  },
+  {
+    "search_keyword": "뮤직웨이브",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "멜론 앱 기능",
+      "실시간 채팅 감상",
+      "테마채널 음악",
+      "소셜 청취"
+    ]
+  },
+  {
+    "search_keyword": "무엇이든 해낼 당신에게",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "위로 발라드",
+      "응원 메시지",
+      "힐링 감성",
+      "인디 팝발라드"
+    ]
+  },
+  {
+    "search_keyword": "잔울",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "인디 발라드",
+      "감성 인디음악",
+      "국내 인디 뮤지션",
+      "잔잔한 발라드"
+    ]
+  },
+  {
+    "search_keyword": "국어별동대",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "유튜브 크리에이터 음악",
+      "국어 학습 웹툰",
+      "키즈교육 음악",
+      "크리에이터 컬래버"
+    ]
+  },
+  {
+    "search_keyword": "soonflow",
+    "self_entity": {
+      "type": "artist",
+      "is_domestic": false,
+      "name_original": "soonflow",
+      "name_english": "Soonflow",
+      "artist_name_original": null,
+      "artist_name_english": null
+    },
+    "mentioned_artist": null,
+    "mentioned_song": {
+      "name_original": "The Best Is Yet to Come",
+      "is_domestic": false,
+      "name_english": null,
+      "artist_name_original": "soonflow",
+      "artist_name_english": "Soonflow"
+    },
+    "fallback_theme_keywords": [
+      "글로벌 팝",
+      "인디팝 아티스트",
+      "해외 신인 팝",
+      "감성 팝송"
+    ]
+  },
+  {
+    "search_keyword": "이런 여유 너무 좋고",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "여유로운 감성",
+      "팝 발라드",
+      "힐링 무드",
+      "편안한 팝"
+    ]
+  },
+  {
+    "search_keyword": "사람이 지쳤잖아",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "감성 발라드",
+      "지친 마음 위로",
+      "인디 감성곡",
+      "힐링 발라드"
+    ]
+  },
+  {
+    "search_keyword": "해지",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "멜론 이용권",
+      "정기결제 해지",
+      "서비스 메뉴",
+      "구독 관리"
+    ]
+  },
+  {
+    "search_keyword": "불행했으면해",
+    "self_entity": null,
+    "mentioned_artist": {
+      "name_original": "ByssBlue",
+      "is_domestic": true,
+      "name_english": null
+    },
+    "mentioned_song": {
+      "name_original": "불행했으면 좋겠어",
+      "is_domestic": true,
+      "name_english": null,
+      "artist_name_original": "ByssBlue",
+      "artist_name_english": null
+    },
+    "fallback_theme_keywords": [
+      "짝사랑 감성",
+      "이별 발라드",
+      "감성 가사곡",
+      "국내 인디발라드"
+    ]
+  },
+  {
+    "search_keyword": "무엇이든해낼당신에게",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "자기계발 도서",
+      "에세이",
+      "위로 메시지",
+      "독서 콘텐츠"
+    ]
+  },
+  {
+    "search_keyword": "음만노",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "의미불명 검색어",
+      "신조어 추정",
+      "오타 가능성",
+      "커뮤니티 은어"
+    ]
+  },
+  {
+    "search_keyword": "먼작귀",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "치이카와 밈",
+      "캐릭터 챌린지",
+      "귀여운 캐릭터",
+      "일본 캐릭터 IP"
+    ]
+  },
+  {
+    "search_keyword": "big",
+    "self_entity": null,
+    "mentioned_artist": {
+      "name_original": "BIG Naughty(빅나티)",
+      "is_domestic": true,
+      "name_english": null
+    },
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "힙합",
+      "래퍼",
+      "H1ghr Music",
+      "국내 힙합신"
+    ]
+  },
+  {
+    "search_keyword": "로린디엘",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "AI 버추얼 아티스트",
+      "음성합성 음악",
+      "가상 아티스트",
+      "국내 인디음악"
+    ]
+  },
+  {
+    "search_keyword": "verano",
+    "self_entity": {
+      "type": "song",
+      "is_domestic": false,
+      "name_original": "Verano Rosa",
+      "name_english": "Verano Rosa",
+      "artist_name_original": "Karol G & Feid",
+      "artist_name_english": "Karol G & Feid"
+    },
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "라틴팝",
+      "여름 시즌송",
+      "레게톤",
+      "스페인어 팝"
+    ]
+  },
+  {
+    "search_keyword": "녹는가슴",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "이별 발라드",
+      "감성 트로트",
+      "순우리말 가사",
+      "실연 감성"
+    ]
+  },
+  {
+    "search_keyword": "퍼피구조대",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "어린이 콘텐츠",
+      "애니메이션 OST",
+      "유아용 애니메이션 주제가",
+      "키즈 콘텐츠"
+    ]
+  },
+  {
+    "search_keyword": "mellozen",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "AI 음악 프로젝트",
+      "감성 발라드",
+      "국내 인디아티스트",
+      "AI 보컬"
+    ]
+  },
+  {
+    "search_keyword": "34xp",
+    "self_entity": {
+      "type": "artist",
+      "is_domestic": false,
+      "name_original": "34XP",
+      "name_english": "34XP",
+      "artist_name_original": null,
+      "artist_name_english": null
+    },
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "글로벌 인디음악",
+      "얼터너티브 팝",
+      "인디 일렉트로닉",
+      "해외 인디아티스트"
+    ]
+  },
+  {
+    "search_keyword": "주간인기상",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "멜론 뮤직어워드",
+      "주간 투표 서비스",
+      "인기차트",
+      "뮤직어워드 이벤트"
+    ]
+  },
+  {
+    "search_keyword": "이런게행복이지뭐",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "일상 브이로그 감성",
+      "SNS 밈 문구",
+      "소소한행복 트렌드",
+      "감성 에세이"
+    ]
+  },
+  {
+    "search_keyword": "zinaflow",
+    "self_entity": {
+      "type": "artist",
+      "is_domestic": false,
+      "name_original": "zinaflow",
+      "name_english": "Zinaflow",
+      "artist_name_original": null,
+      "artist_name_english": null
+    },
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "AI 힙합",
+      "알앤비 무드",
+      "글로벌 인디힙합",
+      "AI 뮤지션"
+    ]
+  },
+  {
+    "search_keyword": "내정보",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "멜론 앱 기능",
+      "회원정보 관리",
+      "마이페이지",
+      "계정설정"
+    ]
+  },
+  {
+    "search_keyword": "무엇이든해낼",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "자기계발 문구",
+      "동기부여 콘텐츠",
+      "긍정 확언",
+      "응원 메시지"
+    ]
+  },
+  {
+    "search_keyword": "helloping",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "AI 보컬 인디음악",
+      "인디 발라드",
+      "2025 신인아티스트",
+      "감성 인디음악"
+    ]
+  },
+  {
+    "search_keyword": "verano!",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": {
+      "name_original": "Verano Rosa",
+      "is_domestic": false,
+      "name_english": "Verano Rosa",
+      "artist_name_original": "Karol G & Feid",
+      "artist_name_english": "Karol G & Feid"
+    },
+    "fallback_theme_keywords": [
+      "라틴팝",
+      "여름 시즌송",
+      "레게톤",
+      "스페인어 노래"
+    ]
+  },
+  {
+    "search_keyword": "고래보석",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "극장판 애니메이션 OST",
+      "하츄핑 콘텐츠",
+      "키즈 애니메이션 음악",
+      "스페셜 OST 앨범"
+    ]
+  },
+  {
+    "search_keyword": "germinie",
+    "self_entity": {
+      "type": "artist",
+      "is_domestic": false,
+      "name_original": "germinie",
+      "name_english": "Germinie",
+      "artist_name_original": null,
+      "artist_name_english": null
+    },
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "글로벌 인디팝",
+      "드림팝",
+      "인디 얼터너티브",
+      "해외 인디아티스트"
+    ]
+  },
+  {
+    "search_keyword": "맛뮤직",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "감성 힙합",
+      "칠 무드",
+      "가사 콘텐츠",
+      "로파이 힙합"
+    ]
+  },
+  {
+    "search_keyword": "캐시충전",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "정기구독",
+      "캐시 결제",
+      "이용권 안내",
+      "멤버십 혜택"
+    ]
+  },
+  {
+    "search_keyword": "헬로핑",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "AI 아티스트",
+      "인디 일렉트로닉",
+      "버추얼 뮤지션",
+      "실험적 팝"
+    ]
+  },
+  {
+    "search_keyword": "summer session",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "여름 컴필레이션",
+      "칠 라운지",
+      "여름 플레이리스트",
+      "무드 팝"
+    ]
+  },
+  {
+    "search_keyword": "이용권",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "정기구독",
+      "스트리밍 이용권",
+      "멤버십 혜택",
+      "결제 안내"
+    ]
+  },
+  {
+    "search_keyword": "비행정",
+    "self_entity": {
+      "type": "song",
+      "is_domestic": false,
+      "name_original": "飛行艇",
+      "name_english": "Hikoutei",
+      "artist_name_original": "King Gnu",
+      "artist_name_english": "King Gnu"
+    },
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "일본 밴드 음악",
+      "얼터너티브 록",
+      "재즈 펑크 록",
+      "J-록"
+    ]
+  },
+  {
+    "search_keyword": "행복이 그거래요",
+    "self_entity": null,
+    "mentioned_artist": {
+      "name_original": "미즈키",
+      "is_domestic": true,
+      "name_english": null
+    },
+    "mentioned_song": {
+      "name_original": "행복이 그거래요",
+      "is_domestic": true,
+      "name_english": null,
+      "artist_name_original": "미즈키",
+      "artist_name_english": null
+    },
+    "fallback_theme_keywords": [
+      "짝사랑 발라드",
+      "감성 가사 밈",
+      "인디 발라드",
+      "감성 무드"
+    ]
+  },
+  {
+    "search_keyword": "안녕 겜작",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "게임 브금",
+      "인디 게임 음악",
+      "OST",
+      "밈 표현"
+    ]
+  },
+  {
+    "search_keyword": "anoufie",
+    "self_entity": {
+      "type": "artist",
+      "is_domestic": false,
+      "name_original": "Anoufie",
+      "name_english": "Anoufie",
+      "artist_name_original": null,
+      "artist_name_english": null
+    },
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "글로벌 인디팝",
+      "베드룸 팝",
+      "칠 무드",
+      "인디 일렉트로닉"
+    ]
+  },
+  {
+    "search_keyword": "투표",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "음악방송 순위",
+      "팬 투표",
+      "차트 순위",
+      "아이돌 응원"
+    ]
+  },
+  {
+    "search_keyword": "rover is",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "인디 록",
+      "신진 아티스트",
+      "얼터너티브 팝",
+      "드림팝"
+    ]
+  },
+  {
+    "search_keyword": "정승환 입춘",
+    "self_entity": null,
+    "mentioned_artist": {
+      "name_original": "한로로",
+      "is_domestic": true,
+      "name_english": null
+    },
+    "mentioned_song": {
+      "name_original": "입춘",
+      "is_domestic": true,
+      "name_english": null,
+      "artist_name_original": "한로로",
+      "artist_name_english": null
+    },
+    "fallback_theme_keywords": [
+      "커버곡 무대",
+      "감성 발라드",
+      "인디 포크",
+      "라이브 클립"
+    ]
+  },
+  {
+    "search_keyword": "serinwave",
+    "self_entity": {
+      "type": "artist",
+      "is_domestic": false,
+      "name_original": "Serinwave",
+      "name_english": "Serinwave",
+      "artist_name_original": null,
+      "artist_name_english": null
+    },
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "로파이",
+      "앰비언트",
+      "칠 무드",
+      "인스트루멘탈"
+    ]
+  },
+  {
+    "search_keyword": "jerome timu",
+    "self_entity": {
+      "type": "artist",
+      "is_domestic": false,
+      "name_original": "Jerome Timu",
+      "name_english": "Jerome Timu",
+      "artist_name_original": null,
+      "artist_name_english": null
+    },
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "글로벌 인디",
+      "어쿠스틱 팝",
+      "싱어송라이터",
+      "칠 팝"
+    ]
+  },
+  {
+    "search_keyword": "꺼져 제발",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "이별 노래",
+      "화난 감성 힙합",
+      "브레이크업 발라드",
+      "디스곡"
+    ]
+  },
+  {
+    "search_keyword": "사람이지쳤잖아",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "감성 발라드",
+      "위로 음악",
+      "인디 팝"
+    ]
+  },
+  {
+    "search_keyword": "치하",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "중국 드라마 OST",
+      "아시아 드라마 사운드트랙",
+      "여름 로맨스"
+    ]
+  },
+  {
+    "search_keyword": "니썬뮤직",
+    "self_entity": {
+      "type": "artist",
+      "is_domestic": false,
+      "name_original": "Nisun Music",
+      "name_english": "Nisun Music",
+      "artist_name_original": null,
+      "artist_name_english": null
+    },
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "인디 뮤지션",
+      "글로벌 인디음악",
+      "일렉트로닉 팝"
+    ]
+  },
+  {
+    "search_keyword": "lovixx",
+    "self_entity": {
+      "type": "artist",
+      "is_domestic": false,
+      "name_original": "LOVIXX",
+      "name_english": "LOVIXX",
+      "artist_name_original": null,
+      "artist_name_english": null
+    },
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "힙합",
+      "랩 비트",
+      "글로벌 힙합"
+    ]
+  },
+  {
+    "search_keyword": "장한별 인생이란",
+    "self_entity": null,
+    "mentioned_artist": {
+      "name_original": "윤시내",
+      "is_domestic": true,
+      "name_english": null
+    },
+    "mentioned_song": {
+      "name_original": "인생이란",
+      "is_domestic": true,
+      "name_english": null,
+      "artist_name_original": "윤시내",
+      "artist_name_english": null
+    },
+    "fallback_theme_keywords": [
+      "트로트",
+      "커버 무대",
+      "고전 가요"
+    ]
+  },
+  {
+    "search_keyword": "삼일후",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "이별 감성",
+      "시간 흐름 발라드",
+      "잔잔한 감성"
+    ]
+  },
+  {
+    "search_keyword": "국민딴따라",
+    "self_entity": null,
+    "mentioned_artist": {
+      "name_original": "정희라",
+      "is_domestic": true,
+      "name_english": null
+    },
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "트로트 메들리",
+      "휴게소 감성",
+      "흥 트로트"
+    ]
+  },
+  {
+    "search_keyword": "방금 그 노래",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "실시간 음악 인식",
+      "TV·라디오 음악 찾기",
+      "방금그곡"
+    ]
+  },
+  {
+    "search_keyword": "인생은 서툰 여행이래",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "인생 여행 감성",
+      "인디 발라드",
+      "위로 가사"
+    ]
+  },
+  {
+    "search_keyword": "꺼져제발",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "밴드 음악",
+      "이별 분노 감성",
+      "락 발라드"
+    ]
+  },
+  {
+    "search_keyword": "파자마파티즈",
+    "self_entity": {
+      "type": "song",
+      "is_domestic": false,
+      "name_original": "パジャマパーティーズのうた",
+      "name_english": "Pajama Parties' Song",
+      "artist_name_original": "치이카와",
+      "artist_name_english": "Chiikawa"
+    },
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "치이카와 캐릭터송",
+      "일본 캐릭터 음악",
+      "키즈 감성송"
+    ]
+  },
+  {
+    "search_keyword": "이용권해지",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "구독 관리",
+      "이용권 해지",
+      "결제 설정"
+    ]
+  },
+  {
+    "search_keyword": ",",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "인기 차트",
+      "추천 플레이리스트",
+      "신곡 추천"
+    ]
+  },
+  {
+    "search_keyword": "8월의여름",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "여름 감성",
+      "8월 플레이리스트",
+      "여름밤 발라드"
+    ]
+  },
+  {
+    "search_keyword": "paul velchev",
+    "self_entity": {
+      "type": "artist",
+      "is_domestic": false,
+      "name_original": "Paul Velchev",
+      "name_english": "Paul Velchev",
+      "artist_name_original": null,
+      "artist_name_english": null
+    },
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "트랩 비트",
+      "인스트루멘탈 힙합",
+      "글로벌 비트메이커"
+    ]
+  },
+  {
+    "search_keyword": "서핑보이",
+    "self_entity": null,
+    "mentioned_artist": {
+      "name_original": "레드벨벳",
+      "is_domestic": true,
+      "name_english": null
+    },
+    "mentioned_song": {
+      "name_original": "Surfin' Boy(서핑보이)",
+      "is_domestic": true,
+      "name_english": null,
+      "artist_name_original": "레드벨벳",
+      "artist_name_english": null
+    },
+    "fallback_theme_keywords": [
+      "여름 댄스곡",
+      "걸그룹 서머송",
+      "해변 감성",
+      "댄스 팝"
+    ]
+  },
+  {
+    "search_keyword": "쿠폰",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "멜론 이용권",
+      "쿠폰함",
+      "구독 혜택",
+      "멜론 캐시"
+    ]
+  },
+  {
+    "search_keyword": "l",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "인기 급상승곡",
+      "최신 음악",
+      "추천 플레이리스트",
+      "차트 TOP100"
+    ]
+  },
+  {
+    "search_keyword": "헬스키친",
+    "self_entity": null,
+    "mentioned_artist": {
+      "name_original": "앨리샤 키스",
+      "is_domestic": false,
+      "name_english": "Alicia Keys"
+    },
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "브로드웨이 뮤지컬",
+      "뮤지컬 OST",
+      "앨리샤 키스 음악",
+      "라이선스 내한공연"
+    ]
+  },
+  {
+    "search_keyword": "장한별인생이란",
+    "self_entity": null,
+    "mentioned_artist": {
+      "name_original": "장한별",
+      "is_domestic": true,
+      "name_english": null
+    },
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "트로트",
+      "오디션 프로그램",
+      "신인 트로트 가수",
+      "인터뷰 기사"
+    ]
+  },
+  {
+    "search_keyword": "국어 별동대",
+    "self_entity": null,
+    "mentioned_artist": {
+      "name_original": "백앤아×고고프렌즈",
+      "is_domestic": true,
+      "name_english": null
+    },
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "한글 학습동요",
+      "어린이 동화",
+      "세종대왕 테마",
+      "교육 콘텐츠"
+    ]
+  },
+  {
+    "search_keyword": "myofeel",
+    "self_entity": {
+      "type": "artist",
+      "is_domestic": false,
+      "name_original": "myofeel",
+      "name_english": "myofeel",
+      "artist_name_original": null,
+      "artist_name_english": null
+    },
+    "mentioned_artist": null,
+    "mentioned_song": {
+      "name_original": "Good Day Energy",
+      "is_domestic": false,
+      "name_english": "Good Day Energy",
+      "artist_name_original": "myofeel",
+      "artist_name_english": "myofeel"
+    },
+    "fallback_theme_keywords": [
+      "인디 일렉트로닉",
+      "글로벌 인디음악",
+      "신스팝",
+      "무명 아티스트 발굴"
+    ]
+  },
+  {
+    "search_keyword": "cherry flavoured",
+    "self_entity": {
+      "type": "song",
+      "is_domestic": false,
+      "name_original": "Cherry Flavoured",
+      "name_english": "Cherry Flavoured",
+      "artist_name_original": "The Neighbourhood",
+      "artist_name_english": "The Neighbourhood"
+    },
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "얼터너티브 록",
+      "인디팝",
+      "몽환적 무드",
+      "미국 밴드 음악"
+    ]
+  },
+  {
+    "search_keyword": "무엇이든 해낼당신에게",
+    "self_entity": null,
+    "mentioned_artist": {
+      "name_original": "jehoda",
+      "is_domestic": true,
+      "name_english": null
+    },
+    "mentioned_song": {
+      "name_original": "무엇이든 해낼 당신에게",
+      "is_domestic": true,
+      "name_english": null,
+      "artist_name_original": "jehoda",
+      "artist_name_english": null
+    },
+    "fallback_theme_keywords": [
+      "응원곡",
+      "감성 발라드",
+      "인디 싱어송라이터",
+      "위로송"
+    ]
+  },
+  {
+    "search_keyword": "oia at sunset",
+    "self_entity": {
+      "type": "song",
+      "is_domestic": false,
+      "name_original": "Oia at Sunset",
+      "name_english": "Oia at Sunset",
+      "artist_name_original": "Cielo Ardent",
+      "artist_name_english": "Cielo Ardent"
+    },
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "라운지 하우스",
+      "칠아웃 뮤직",
+      "지중해 감성",
+      "무드 인스트루멘탈"
+    ]
+  },
+  {
+    "search_keyword": "갬작",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "팬덤 은어",
+      "신조어 밈",
+      "감성 콘텐츠",
+      "온라인 트렌드"
+    ]
+  },
+  {
+    "search_keyword": "쿠팡",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "이커머스",
+      "쇼핑 앱",
+      "브랜드 검색",
+      "생활 서비스"
+    ]
+  },
+  {
+    "search_keyword": "차쿤에네스",
+    "self_entity": {
+      "type": "artist",
+      "is_domestic": false,
+      "name_original": "Chakun & Enes",
+      "name_english": "Chakun & Enes",
+      "artist_name_original": null,
+      "artist_name_english": null
+    },
+    "mentioned_artist": null,
+    "mentioned_song": {
+      "name_original": "눈물",
+      "is_domestic": false,
+      "name_english": "Nunmul",
+      "artist_name_original": "Chakun & Enes",
+      "artist_name_english": "Chakun & Enes"
+    },
+    "fallback_theme_keywords": [
+      "레트로 인터넷 밈",
+      "2000년대 인터넷 명곡",
+      "패러디 문화",
+      "추억의 인터넷곡"
+    ]
+  },
+  {
+    "search_keyword": "meet my girls",
+    "self_entity": null,
+    "mentioned_artist": {
+      "name_original": "TUIDE",
+      "is_domestic": true,
+      "name_english": null
+    },
+    "mentioned_song": {
+      "name_original": "GRLS",
+      "is_domestic": true,
+      "name_english": null,
+      "artist_name_original": "TUIDE",
+      "artist_name_english": null
+    },
+    "fallback_theme_keywords": [
+      "신인 걸그룹",
+      "하이브 신인",
+      "데뷔 앨범",
+      "걸그룹 타이틀곡"
+    ]
+  },
+  {
+    "search_keyword": "힙썬",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "힙합",
+      "온라인 신조어",
+      "음악 커뮤니티 용어",
+      "장르 불명"
+    ]
+  },
+  {
+    "search_keyword": "녹는 가슴",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "감성 발라드",
+      "사랑 고백 가사",
+      "잔잔한 발라드",
+      "감정 표현 가사"
+    ]
+  },
+  {
+    "search_keyword": "ej",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "싱어송라이터",
+      "이니셜 아티스트명",
+      "K-POP 작곡가",
+      "애니메이션 OST"
+    ]
+  },
+  {
+    "search_keyword": "이창민바보같지만",
+    "self_entity": null,
+    "mentioned_artist": {
+      "name_original": "이창민",
+      "is_domestic": true,
+      "name_english": null
+    },
+    "mentioned_song": {
+      "name_original": "바보같지만",
+      "is_domestic": true,
+      "name_english": null,
+      "artist_name_original": "임영웅",
+      "artist_name_english": null
+    },
+    "fallback_theme_keywords": [
+      "트로트 서바이벌",
+      "무명가수 오디션",
+      "감성 발라드",
+      "2AM 멤버"
+    ]
+  },
+  {
+    "search_keyword": "보넷도",
+    "self_entity": null,
+    "mentioned_artist": {
+      "name_original": "보이넥스트도어(BOYNEXTDOOR)",
+      "is_domestic": true,
+      "name_english": null
+    },
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "보이그룹 팬덤",
+      "K-POP 아이돌",
+      "팬덤 신조어",
+      "아이돌 그룹"
+    ]
+  },
+  {
+    "search_keyword": "1+1",
+    "self_entity": null,
+    "mentioned_artist": {
+      "name_original": "애쉬아일랜드(ASH ISLAND)",
+      "is_domestic": true,
+      "name_english": null
+    },
+    "mentioned_song": {
+      "name_original": "1+1",
+      "is_domestic": true,
+      "name_english": null,
+      "artist_name_original": "애쉬아일랜드(ASH ISLAND)",
+      "artist_name_english": null
+    },
+    "fallback_theme_keywords": [
+      "힙합 신곡",
+      "래퍼 앨범",
+      "이용권 프로모션",
+      "2025 힙합 앨범"
+    ]
+  },
+  {
+    "search_keyword": "ヤラララ",
+    "self_entity": {
+      "type": "song",
+      "is_domestic": false,
+      "name_original": "ヤラララ",
+      "name_english": "Yararara",
+      "artist_name_original": "ABM(AnythingBecomeMoe)",
+      "artist_name_english": "ABM (AnythingBecomeMoe)"
+    },
+    "mentioned_artist": {
+      "name_original": "重音テト(카사네 테토)",
+      "is_domestic": false,
+      "name_english": "Kasane Teto"
+    },
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "보컬로이드 음악",
+      "UTAU 캐릭터송",
+      "일본 서브컬처 음악",
+      "보이스합성 팝"
+    ]
+  },
+  {
+    "search_keyword": "차쿤 에네스",
+    "self_entity": null,
+    "mentioned_artist": {
+      "name_original": "차쿤&에네스",
+      "is_domestic": true,
+      "name_english": null
+    },
+    "mentioned_song": {
+      "name_original": "눈물",
+      "is_domestic": true,
+      "name_english": null,
+      "artist_name_original": "차쿤&에네스",
+      "artist_name_english": null
+    },
+    "fallback_theme_keywords": [
+      "인터넷 밈송",
+      "2000년대 자작곡",
+      "힙합 크루",
+      "추억의 인터넷 음악"
+    ]
+  },
+  {
+    "search_keyword": "맞게살아온걸까",
+    "self_entity": null,
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "자기성찰 가사",
+      "인생 고민 발라드",
+      "위로 감성곡",
+      "삶에 대한 성찰"
+    ]
+  },
+  {
+    "search_keyword": "uyoung wave",
+    "self_entity": {
+      "type": "artist",
+      "is_domestic": false,
+      "name_original": "UYoung Wave",
+      "name_english": "UYoung Wave",
+      "artist_name_original": null,
+      "artist_name_english": null
+    },
+    "mentioned_artist": null,
+    "mentioned_song": null,
+    "fallback_theme_keywords": [
+      "로파이 팝",
+      "인디 드림팝",
+      "감성 로파이",
+      "글로벌 인디음악"
+    ]
+  }
+]

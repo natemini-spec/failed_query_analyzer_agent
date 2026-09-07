@@ -57,8 +57,10 @@ async function buildSuggestion(entityRow) {
     suggestion_synonym_url: null,
     suggestion_related_artist_id: null,
     suggestion_related_artist_url: null,
+    suggestion_related_artist_title: null,
     suggestion_related_song_id: null,
     suggestion_related_song_url: null,
+    suggestion_related_song_title: null,
     suggestion_theme_keywords: null,
   };
 
@@ -66,7 +68,8 @@ async function buildSuggestion(entityRow) {
 
   let foundAny = false;
 
-  // Case 1: 해외 아티스트/곡 동의어 매핑 제안
+  // Case 1: 해외 아티스트/곡 동의어 매핑 제안 (검색어 자신 = 발음/표기 차이로 실패한 기존 콘텐츠)
+  // 동의어 표기 기준: 대표어 = 멜론에 실제 등록된 공식명(match.title), 동의어 = 실패한 검색어 그 자체.
   const self = entityRow.self_entity;
   if (self && self.is_domestic === false) {
     const selfOpts = self.type === 'song'
@@ -75,26 +78,24 @@ async function buildSuggestion(entityRow) {
     const match = await findBestMatch(self.type, queriesFor(self), selfOpts);
     if (match) {
       foundAny = true;
-      const namePart = self.name_english && self.name_english !== self.name_original
-        ? `원어명 '${self.name_original}' / 영문독음 '${self.name_english}'`
-        : `원어명 '${self.name_original}'`;
-      suggestion.suggestion_synonym_mapping =
-        `검색어 '${entityRow.search_keyword}' → ${namePart} 로 멜론 내 매칭 콘텐츠 확인됨 ('${match.title}') → 동의어/다국어 처리 제안`;
+      suggestion.suggestion_synonym_mapping = `대표어: '${match.title}' / 동의어: '${entityRow.search_keyword}'`;
       suggestion.suggestion_synonym_url = match.url;
     }
   }
 
-  // Case 2: 언급된 관련 아티스트
+  // Case 2: 언급된 관련(원본) 아티스트 — 검색어 자체와는 다른 콘텐츠이므로 "대응"이 아니라
+  // 참고용 안내로만 취급한다 (대응 제안 라벨링은 generate_dashboard.js에서 처리).
   if (entityRow.mentioned_artist) {
     const match = await findBestMatch('artist', queriesFor(entityRow.mentioned_artist));
     if (match) {
       foundAny = true;
       suggestion.suggestion_related_artist_id = match.id;
       suggestion.suggestion_related_artist_url = match.url;
+      suggestion.suggestion_related_artist_title = match.title;
     }
   }
 
-  // Case 3: 언급된 관련 곡 — 곡 제목은 여러 아티스트가 재사용하는 경우가 많아
+  // Case 3: 언급된 관련(원본) 곡 — 곡 제목은 여러 아티스트가 재사용하는 경우가 많아
   // (예: "눈물"), 언급된 아티스트의 원어명/영문독음명과 부분일치하지 않는 결과는 제외한다.
   if (entityRow.mentioned_song) {
     const songArtistNames = [
@@ -108,6 +109,7 @@ async function buildSuggestion(entityRow) {
       foundAny = true;
       suggestion.suggestion_related_song_id = match.id;
       suggestion.suggestion_related_song_url = match.url;
+      suggestion.suggestion_related_song_title = match.title;
     }
   }
 
@@ -147,8 +149,10 @@ async function main() {
         suggestion_synonym_url: null,
         suggestion_related_artist_id: null,
         suggestion_related_artist_url: null,
+        suggestion_related_artist_title: null,
         suggestion_related_song_id: null,
         suggestion_related_song_url: null,
+        suggestion_related_song_title: null,
         suggestion_theme_keywords: null,
       });
       continue;
@@ -169,8 +173,8 @@ async function main() {
     'search_keyword', 'search_cnt', 'click_cnt', 'click_rate', 'is_typo', 'corrected_keyword',
     'description', 'category', 'confidence',
     'suggestion_synonym_mapping', 'suggestion_synonym_url',
-    'suggestion_related_artist_id', 'suggestion_related_artist_url',
-    'suggestion_related_song_id', 'suggestion_related_song_url',
+    'suggestion_related_artist_id', 'suggestion_related_artist_url', 'suggestion_related_artist_title',
+    'suggestion_related_song_id', 'suggestion_related_song_url', 'suggestion_related_song_title',
     'suggestion_theme_keywords',
   ];
   const csvLines = [header.join(',')];
